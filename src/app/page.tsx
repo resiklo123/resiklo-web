@@ -59,11 +59,11 @@ function Mission() {
           Innovate solutions for recycling and restoring the environment
         </h2>
         <p className="text-xl text-gray-700 text-justify font-medium mb-12">
-          Humans are meant to create—it's both our gift and our responsibility.
+          Humans are meant to create—it’s both our gift and our responsibility.
           We find joy in building things that help one another. But what if we
           took it a step further? Imagine creating something valuable from what
-          others see as waste. Turning 'trash' into something new isn't just
-          resourceful—it's a powerful way to innovate, make a difference, and
+          others see as waste. Turning ’trash’ into something new isn’t just
+          resourceful—it’s a powerful way to innovate, make a difference, and
           contribute to a more sustainable world.
         </p>
         <p className="text-xl font-medium text-justify text-gray-700">
@@ -116,7 +116,7 @@ function Services() {
             <h2 className="text-2xl py-8">Shredding Services</h2>
             <p className="text-gray-700">
               Our shredding services are designed to help you efficiently and
-              securely process waste materials. Whether it's plastic, paper, or
+              securely process waste materials. Whether it’s plastic, paper, or
               other recyclables, we provide reliable solutions to reduce waste
               and support sustainability.
             </p>
@@ -219,10 +219,10 @@ function KeyMilestones() {
         <p className="mb-32 text-xl text-center text-gray-700">
           From humble beginnings to becoming a leader in sustainable innovation,
           our journey at Resiklo Machine Shop has been driven by a passion for
-          creating solutions that make a difference. Every step we've taken has
+          creating solutions that make a difference. Every step we’ve taken has
           been focused on transforming waste into valuable products, empowering
           communities, and contributing to a cleaner, greener future. Join us as
-          we continue to push the boundaries of what's possible and build a
+          we continue to push the boundaries of what’s possible and build a
           better world together.
         </p>
         <div className="grid grid-cols-2 mb-40">
