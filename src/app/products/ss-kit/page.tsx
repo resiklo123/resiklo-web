@@ -1,4 +1,4 @@
-import { products } from "@/const"
+import { products } from "@/app/const"
 
 export default function Page() {
   const product = products.find((p) => p.slug === "ss-kit")
