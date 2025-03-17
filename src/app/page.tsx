@@ -1,9 +1,7 @@
 import Image from "next/image"
 import heroImage from "./images/hero.jpg"
-import shredderBox from "./images/shredder-box-ms.png"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
-import plasticInjection from "./images/plastic-injection.png"
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 
@@ -146,37 +144,105 @@ function Products() {
   return (
     <div className="flex flex-col justify-center">
       <div className="max-w-6xl m-auto">
-        <h2 className="mt-20 font-bold text-4xl text-center">
+        {/* <h2 className="mt-20 mb-12 font-bold text-4xl text-center">
           Signature Products
-        </h2>
-        <div className="grid grid-cols-2">
-          <div className="">
+        </h2> */}
+        <div className="grid grid-cols-2 gap-y-56">
+          <div className="flex justify-center">
             <Image
-              src={shredderBox}
+              src={shredderMachine}
               alt="Next.js logo"
               priority
               height={500}
               className="object-cover"
             />
-            <p className="text-center text-xl tracking-tight font-bold">
-              Shredder Box
-            </p>
           </div>
-          <div className="">
-            <div className="">
-              <Image
-                src={shredderMachine}
-                alt="Next.js logo"
-                priority
-                height={500}
-                className="object-cover"
-              />
+          <div>
+            <h2 className="mb-4 text-3xl">Shredder Machine</h2>
+            <p className="mb-8 text-gray-700">
+              Efficiently breaks down materials like plastic, paper, and metal
+              into smaller pieces for easy recycling and disposal. Designed for
+              durability and performance, it helps reduce waste and supports
+              sustainable practices.
+            </p>
+
+            <h2 className="mb-8 text-2xl">Sample Materials</h2>
+            <div className="grid grid-cols-4 gap-4">
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Chicken Bones</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Mussel Shells</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Nylon Bag</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Tree branch</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Leaves</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Plastic toys</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Dry corn cob</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Flower Pot</p>
+              </div>
             </div>
-            <p className="text-center text-xl tracking-tight font-bold">
-              Shredder Machine
-            </p>
           </div>
-          <div className="">
+          <div className="flex justify-center">
             <Image
               src={plasticCrusher}
               alt="Next.js logo"
@@ -184,21 +250,91 @@ function Products() {
               height={500}
               className="object-cover"
             />
-            <p className="text-center text-xl tracking-tight font-bold">
-              Plastic Crusher
-            </p>
           </div>
-          <div className="">
-            <Image
-              src={plasticInjection}
-              alt="Next.js logo"
-              priority
-              height={500}
-              className="object-cover"
-            />
-            <p className="text-center text-xl tracking-tight font-bold">
-              Plastic Injection
+          <div>
+            <h2 className="mb-4 text-3xl">Plastic Crusher</h2>
+            <p className="mb-8 text-gray-700">
+              Powerful machine designed to break down plastic waste into
+              smaller, manageable pieces. It enhances recycling efficiency by
+              reducing volume, making plastic easier to process and repurpose
+              for sustainable use.
             </p>
+
+            <h2 className="mb-8 text-2xl">Sample Materials</h2>
+            <div className="grid grid-cols-4 gap-4">
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Coconut husk</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>PET bottles</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Abaca strands</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Surgical mask</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Wheel tires</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>LDPE bags</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Leather baseball gloves</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Electric wire</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="text-center py-20">
