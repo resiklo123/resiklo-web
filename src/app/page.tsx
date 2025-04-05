@@ -44,12 +44,12 @@ function Hero() {
           <Image
                 src={logoFull}
                 alt="Resiklo Logo"
-                width={800}
+                width={1000}
                 height={500}
                 className="mr-0 mu-0"
               />
             <h1
-              className="text-white ml-20 text-[20px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
+              className="text-white ml-20 text-[23px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
               style={{ fontFamily: '"Franklin Gothic", sans-serif' }}
             >
               Innovative. Impactful. Sustainable
@@ -151,10 +151,10 @@ function Services() {
     <div className="flex flex-col justify-center">
       <div className="max-w-6xl m-auto">
         <h2 className="mb-2 font-bold text-4xl text-center">
-          Elevating Success
+          What We Offer
         </h2>
-        <p className="mb-32 text-2xl text-center">
-          Unlocking the Power of Our Services
+        <p className="mb-12 text-2xl text-center">
+          Helping Build Sustainability
         </p>
         <div className="grid grid-cols-3 gap-48">
           <div className="">
@@ -164,7 +164,7 @@ function Services() {
               priority
               className="object-cover rounded-full h-56 w-56"
             />
-            <h2 className="text-2xl py-8">Design and Engineering Services</h2>
+            <h2 className="text-2xl py-8">Machines and Molds</h2>
             <p className="text-gray-700">
               We provide expert design and engineering solutions to bring your
               ideas to life. From custom machinery to innovative product
@@ -179,7 +179,7 @@ function Services() {
               priority
               className="object-cover rounded-full h-56 w-56"
             />
-            <h2 className="text-2xl py-8">Shredding Services</h2>
+            <h2 className="text-2xl py-8">Services</h2>
             <p className="text-gray-700">
               Our shredding services are designed to help you efficiently and
               securely process waste materials. Whether it’s plastic, paper, or
@@ -194,7 +194,7 @@ function Services() {
               priority
               className="object-cover rounded-full h-56 w-56"
             />
-            <h2 className="text-2xl py-8">Extruding Services</h2>
+            <h2 className="text-2xl py-8">Design & Eng'g Support</h2>
             <p className="text-gray-700">
               Our extruding services turn raw materials into custom shapes and
               profiles with precision and efficiency. We specialize in creating
