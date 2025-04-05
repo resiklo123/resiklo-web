@@ -25,8 +25,8 @@ export function Nav() {
   <Image
     src={logo}
     alt="Resiklo Logo"
-    width={250}
-    height={250}
+    width={50}
+    height={50}
     className="rounded-md"
   />
 </Link>

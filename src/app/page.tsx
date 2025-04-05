@@ -2,6 +2,7 @@ import Image from "next/image"
 import heroImage from "./images/hero2.jpg"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
+import logoFull from "./images/Resiklo-Logo3.png"
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 
@@ -11,8 +12,9 @@ export default function Home() {
     <div className="flex flex-col">
       <main className="flex-1 flex flex-col">
         <Hero />
-        <div className="space-y-120 my-120">
+        <div className="space-y-20 my-12">
           <Mission />
+          <Team />
           <Services />
           <Products />
           <KeyMilestones />
@@ -32,15 +34,27 @@ function Hero() {
         fill
         className="object-cover h-full z-0 "
       />
+      <div className="absolute inset-0 bg-white/25 z-10" />
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center bg-black/40">
         <div className="flex-1 flex flex-col justify-between">
-          <div className="text-center flex-1 flex flex-col justify-center tracking-tight font-bold">
-            <h1 className="text-8xl text-white">Building Machines to</h1>
-            <h1 className="text-8xl text-[#8af562]">Sustain our planet</h1>
+          <div className="text-center flex-1 flex flex-col justify-center tracking-tight font-bold mt-20">
+          <Image
+                src={logoFull}
+                alt="Resiklo Logo"
+                width={800}
+                height={500}
+                className="mr-0 mu-0"
+              />
+            <h1
+              className="text-white ml-20 text-[20px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
+              style={{ fontFamily: '"Franklin Gothic", sans-serif' }}
+            >
+              Innovative. Impactful. Sustainable
+            </h1>
           </div>
           <div className="text-white flex justify-center py-10">
             <div className="flex flex-col items-center cursor-pointer transition-all duration-200 hover:scale-120">
-              <p className="text-2xl">Mission statement</p>
+              <p className="text-2xl">Who We Are</p>
               <ChevronDown size={40} />
             </div>
           </div>
@@ -54,24 +68,76 @@ function Mission() {
   return (
     <div className="">
       <div className="max-w-6xl m-auto">
-        <h2 className="mb-32 font-bold text-4xl text-center">
-          Innovate solutions for recycling and restoring the environment
+        <h2 className="mb-10 font-bold text-4xl text-center">
+        Designing Quality. Building Community.
         </h2>
-        <p className="text-xl text-gray-700 text-justify font-medium mb-12">
-          Humans are meant to create—it’s both our gift and our responsibility.
-          We find joy in building things that help one another. But what if we
-          took it a step further? Imagine creating something valuable from what
-          others see as waste. We need a better one quote. Kevs and Rey thank you so much.
+        <p className="text-[18px] text-gray-700 text-justify font-medium mb-6">
+        <b>Resiklo Machine Shop</b> was founded by passionate engineers with a deep commitment to the environment and a shared love for manufacturing. Our journey began with a clear purpose: <b>to build high-quality, affordable, and locally made machines</b> that empower communities to recycle effectively and sustainably.
         </p>
-        <p className="text-xl font-medium text-justify text-gray-700">
-          Here at <b>Resiklo Machine Shop</b>, that is exactly what we strive
-          for. We design and build innovative solutions that help people
-          transform waste into valuable, usable products. Our mission goes
-          beyond recycling—we aim to spark a global revolution in how we manage
-          waste and care for our shared home, the Earth. By empowering
-          individuals and businesses with sustainable technology, we take a step
-          toward a cleaner, greener future for all.
+        <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
+        We saw how access to recycling technology was limited—either <b>too expensive, too complex, or not designed for local needs.</b> So we set out to change that. By combining engineering expertise, hands-on fabrication, and a vision for environmental impact, we created machines that are reliable, scalable, and easy to use—machines that transform waste into opportunity.
         </p>
+        <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
+        Our team combines years of experience in mechanical design 
+        and local fabrication to produce machines that are <b>reliable, efficient, and proudly made in the Philippines</b>. 
+        Whether it’s transforming plastic waste into beams, sheets, or molded products, our machines are designed to make a real impact—economically, environmentally, and socially.
+        </p>
+        <p className="text-[18px] font-medium text-justify text-gray-700">
+        We're not just building machines. We’re building a movement—one that democratizes access to technology, supports sustainability, and creates opportunities for communities across the country.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function Team() {
+  return (
+    <div className="flex flex-col justify-center">
+      <div className="max-w-6xl m-auto">
+        <h2 className="mb-2 font-bold text-4xl text-center">
+          Team Leaders
+        </h2>
+        <p className="mb-10 text-[22px] text-center">
+          Leading the Change
+        </p>
+        <div className="grid grid-cols-3 gap-48">
+          <div className="">
+            <Image
+              src={heroImage}
+              alt="Next.js logo"
+              priority
+              className="object-cover rounded-full h-56 w-56"
+            />
+            <h2 className="text-2xl py-4">Engr. Koshneir Jimenez</h2>
+            <p className="text-gray-700">
+            Lead Engineer focused on designing efficient, user-friendly recycling machines for local communities.
+            </p>
+          </div>
+          <div className="">
+            <Image
+              src={heroImage}
+              alt="Next.js logo"
+              priority
+              className="object-cover rounded-full h-56 w-56"
+            />
+            <h2 className="text-2xl py-4">Engr. Michael Vizconde</h2>
+            <p className="text-gray-700">
+            Co-founder and systems innovator, leading automation and fabrication for affordable recycling solutions.
+            </p>
+          </div>
+          <div className="">
+            <Image
+              src={heroImage}
+              alt="Next.js logo"
+              priority
+              className="object-cover rounded-full h-56 w-56"
+            />
+            <h2 className="text-2xl py-4">Engr. Jessica Junio</h2>
+            <p className="text-gray-700">
+            Operations and community lead, connecting Resiklo’s technology with the people and places that need it most.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
