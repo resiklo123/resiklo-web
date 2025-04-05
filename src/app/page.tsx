@@ -1,5 +1,8 @@
 import Image from "next/image"
 import heroImage from "./images/hero2.jpg"
+import jimenez from "./images/Jimenez.jpg"
+import vizconde from "./images/Vizconde.jpeg"
+import junio from "./images/Junio.jpg"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
 import logoFull from "./images/Resiklo-Logo3.png"
@@ -103,7 +106,7 @@ function Team() {
         <div className="grid grid-cols-3 gap-48">
           <div className="">
             <Image
-              src={heroImage}
+              src={jimenez}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-56 w-56"
@@ -115,7 +118,7 @@ function Team() {
           </div>
           <div className="">
             <Image
-              src={heroImage}
+              src={vizconde}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-56 w-56"
@@ -127,7 +130,7 @@ function Team() {
           </div>
           <div className="">
             <Image
-              src={heroImage}
+              src={junio}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-56 w-56"
