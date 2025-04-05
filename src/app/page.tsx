@@ -1,10 +1,11 @@
 import Image from "next/image"
-import heroImage from "./images/hero.jpg"
+import heroImage from "./images/hero2.jpg"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 
+//This is the home function
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -60,9 +61,7 @@ function Mission() {
           Humans are meant to create—it’s both our gift and our responsibility.
           We find joy in building things that help one another. But what if we
           took it a step further? Imagine creating something valuable from what
-          others see as waste. Turning ’trash’ into something new isn’t just
-          resourceful—it’s a powerful way to innovate, make a difference, and
-          contribute to a more sustainable world.
+          others see as waste. We need a better one quote. Kevs and Rey thank you so much.
         </p>
         <p className="text-xl font-medium text-justify text-gray-700">
           Here at <b>Resiklo Machine Shop</b>, that is exactly what we strive

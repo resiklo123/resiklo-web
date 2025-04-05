@@ -4,6 +4,10 @@ import Link from "next/link"
 import { cn } from "./utils"
 import { usePathname } from "next/navigation"
 
+import Image from "next/image"
+import logo from "./images/Resiklo-Logo.png"
+
+
 const navigation: { label: string; href: string }[] = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
@@ -14,8 +18,19 @@ const navigation: { label: string; href: string }[] = [
 export function Nav() {
   const path = usePathname()
   return (
+   
+
     <nav className="p-12 flex z-50 justify-between items-center fixed top-0 left-0 right-0 bg-gradient-to-b from-zinc-950/50 via-90% to-transparent">
-      <div>ICON</div>
+      <Link href="/" className="flex items-center space-x-2">
+  <Image
+    src={logo}
+    alt="Resiklo Logo"
+    width={250}
+    height={250}
+    className="rounded-md"
+  />
+</Link>
+      {/* <div>ICON</div> */}
       <ul className="flex space-x-8">
         {navigation.map((item) => (
           <Link
