@@ -86,7 +86,7 @@ function Mission() {
         Whether it’s transforming plastic waste into beams, sheets, or molded products, our machines are designed to make a real impact—economically, environmentally, and socially.
         </p>
         <p className="text-[18px] font-medium text-justify text-gray-700">
-        We're not just building machines. We’re building a movement—one that democratizes access to technology, supports sustainability, and creates opportunities for communities across the country.
+        We’re not just building machines. We’re building a movement—one that democratizes access to technology, supports sustainability, and creates opportunities for communities across the country.
         </p>
       </div>
     </div>
@@ -194,7 +194,7 @@ function Services() {
               priority
               className="object-cover rounded-full h-56 w-56"
             />
-            <h2 className="text-2xl py-8">Design & Eng'g Support</h2>
+            <h2 className="text-2xl py-8">Design & Eng’g Support</h2>
             <p className="text-gray-700">
               Our extruding services turn raw materials into custom shapes and
               profiles with precision and efficiency. We specialize in creating
