@@ -6,6 +6,8 @@ import junio from "./images/Junio.jpg"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
 import logoFull from "./images/Resiklo-Logo3.png"
+import extrusionComb from "./images/Extrusion1.png"
+
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 
@@ -52,7 +54,9 @@ function Hero() {
               className="text-white ml-20 text-[23px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
               style={{ fontFamily: '"Franklin Gothic", sans-serif' }}
             >
-              Innovative. Impactful. Sustainable
+              <span className="mx-7">Innovative.</span>
+              <span className="mx-7">Impactful.</span>
+              <span className="mx-7">Sustainable.</span>
             </h1>
           </div>
           <div className="text-white flex justify-center py-10">
@@ -159,17 +163,32 @@ function Services() {
         <div className="grid grid-cols-3 gap-48">
           <div className="">
             <Image
-              src={heroImage}
+              src={extrusionComb}
               alt="Next.js logo"
               priority
-              className="object-cover rounded-full h-56 w-56"
+              className="object-cover rounded-full h-80 w-56"
             />
-            <h2 className="text-2xl py-8">Machines and Molds</h2>
+            <h2 className="text-2xl py-0">Machines</h2>
             <p className="text-gray-700">
               We provide expert design and engineering solutions to bring your
               ideas to life. From custom machinery to innovative product
               designs, our team ensures efficiency and sustainability in every
               project.
+            </p>
+          </div>
+          <div className="">
+            <Image
+              src={heroImage}
+              alt="Next.js logo"
+              priority
+              className="object-cover rounded-full h-56 w-56"
+            />
+            <h2 className="text-2xl py-8">Molds & Design</h2>
+            <p className="text-gray-700">
+              Our extruding services turn raw materials into custom shapes and
+              profiles with precision and efficiency. We specialize in creating
+              high-quality extrusions for a variety of applications, ensuring
+              durability and sustainability in every product.
             </p>
           </div>
           <div className="">
@@ -185,21 +204,6 @@ function Services() {
               securely process waste materials. Whether it’s plastic, paper, or
               other recyclables, we provide reliable solutions to reduce waste
               and support sustainability.
-            </p>
-          </div>
-          <div className="">
-            <Image
-              src={heroImage}
-              alt="Next.js logo"
-              priority
-              className="object-cover rounded-full h-56 w-56"
-            />
-            <h2 className="text-2xl py-8">Design & Eng’g Support</h2>
-            <p className="text-gray-700">
-              Our extruding services turn raw materials into custom shapes and
-              profiles with precision and efficiency. We specialize in creating
-              high-quality extrusions for a variety of applications, ensuring
-              durability and sustainability in every product.
             </p>
           </div>
         </div>

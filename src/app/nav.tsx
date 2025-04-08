@@ -12,7 +12,10 @@ const navigation: { label: string; href: string }[] = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
   { label: "PRODUCTS", href: "/products" },
+  // { label: "TEAM", href: "/team" },
+  // { label: "STORY", href: "/team" },
   { label: "CONTACT US", href: "/contact-us" },
+  // { label: "DONATE", href: "/donate" },
 ]
 
 export function Nav() {
