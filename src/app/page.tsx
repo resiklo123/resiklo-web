@@ -6,7 +6,7 @@ import junio from "./images/Junio.jpg"
 import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
 import logoFull from "./images/Resiklo-Logo3.png"
-// import extrusionComb from "./images/Extrusion1.png"
+import extrusionComb from "./images/Extrusion1.png"
 
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
@@ -163,7 +163,7 @@ function Services() {
         <div className="grid grid-cols-3 gap-48">
           <div className="">
             <Image
-              src={heroImage}
+              src={extrusionComb}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-80 w-56"
