@@ -55,7 +55,7 @@ function Hero() {
                 className="mr-0 mu-0"
               />
             <h1
-              className="text-white ml-20 text-[23px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
+              className="text-white mr-[-20px] text-[23px] font-normal font-[Franklin Gothic] tracking-widest mt-[-0px]"
               style={{ fontFamily: '"Franklin Gothic", sans-serif' }}
             >
               <span className="mx-7">Innovative.</span>
