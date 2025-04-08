@@ -3,10 +3,14 @@ import heroImage from "./images/hero2.jpg"
 import jimenez from "./images/Jimenez.jpg"
 import vizconde from "./images/Vizconde.jpeg"
 import junio from "./images/Junio.jpg"
-import shredderMachine from "./images/shredder.png"
+// import shredderMachine from "./images/shredder.png"
 import plasticCrusher from "./images/plastic-crusher.png"
 import logoFull from "./images/Resiklo-Logo3.png"
 import extrusionComb from "./images/Extrusion1.png"
+import shredderCrusher from "./images/Crusher-Machines.png"
+import extrInj from "./images/Extru-Inj.png"
+import balersPic from "./images/Balers.png"
+
 
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
@@ -219,18 +223,19 @@ function Products() {
         {/* <h2 className="mt-20 mb-12 font-bold text-4xl text-center">
           Signature Products
         </h2> */}
-        <div className="grid grid-cols-2 gap-y-56">
+        <div className="grid grid-cols-2 gap-y-50">
+  {/* This is for the Crusher/Shredder Part. */}   
           <div className="flex justify-center">
             <Image
-              src={shredderMachine}
+              src={shredderCrusher}
               alt="Next.js logo"
               priority
-              height={500}
+              height={600}
               className="object-cover"
             />
           </div>
           <div>
-            <h2 className="mb-4 text-3xl">Shredder Machine</h2>
+            <h2 className="mb-4 text-3xl">Shredders & Crushers</h2>
             <p className="mb-8 text-gray-700">
               Efficiently breaks down materials like plastic, paper, and metal
               into smaller pieces for easy recycling and disposal. Designed for
@@ -314,9 +319,107 @@ function Products() {
               </div>
             </div>
           </div>
+  {/* This is end for the Crusher/Shredder Part. */} 
+  {/* This is for the Extrusion Part. */}          
           <div className="flex justify-center">
             <Image
-              src={plasticCrusher}
+              src={extrInj}
+              alt="Next.js logo"
+              priority
+              height={800}
+              className="object-cover mt-[-190px]"
+            />
+          </div>
+          <div>
+            <h2 className="mb-4 text-3xl">Extruders & Injectors</h2>
+            <p className="mb-8 text-gray-700">
+              Powerful machine designed to break down plastic waste into
+              smaller, manageable pieces. It enhances recycling efficiency by
+              reducing volume, making plastic easier to process and repurpose
+              for sustainable use.
+            </p>
+
+            <h2 className="mb-8 text-2xl">Sample Molds & Products</h2>
+            <div className="grid grid-cols-4 gap-4">
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Coconut husk</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>PET bottles</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Abaca strands</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Surgical mask</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Wheel tires</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>LDPE bags</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Leather baseball gloves</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Image
+                  src={heroImage}
+                  alt="Next.js logo"
+                  priority
+                  className="object-cover rounded-full w-20 h-20"
+                />
+                <p>Electric wire</p>
+              </div>
+            </div>
+          </div>
+  {/* This is the End for the Extrusion Part. */}          
+  {/* This is for the Baler Section. */}
+          <div className="flex justify-center">
+            <Image
+              src={balersPic}
               alt="Next.js logo"
               priority
               height={500}
@@ -324,7 +427,7 @@ function Products() {
             />
           </div>
           <div>
-            <h2 className="mb-4 text-3xl">Plastic Crusher</h2>
+            <h2 className="mb-4 text-3xl">Balers</h2>
             <p className="mb-8 text-gray-700">
               Powerful machine designed to break down plastic waste into
               smaller, manageable pieces. It enhances recycling efficiency by
@@ -408,6 +511,7 @@ function Products() {
               </div>
             </div>
           </div>
+  {/* This is the end for the Baler Section. */}
         </div>
         <div className="text-center py-20">
           <Link href="/products" className="text-xl">
