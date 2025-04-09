@@ -11,6 +11,7 @@ import shredderCrusher from "./images/Crusher-Machines.png"
 import extrInj from "./images/Extru-Inj.png"
 import balersPic from "./images/Balers.png"
 import servicesPic from "./images/Services1.png"
+import servicesMolds from "./images/Molds1.jpg"
 
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
@@ -182,7 +183,7 @@ function Services() {
           </div>
           <div className="">
             <Image
-              src={heroImage}
+              src={servicesMolds}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-56 w-56"
@@ -548,20 +549,18 @@ function KeyMilestones() {
           </div>
           <div className="p-8">
             <h2 className="text-3xl mb-8">
-              First client -{" "}
+              
               <a
                 href="https://www.grainpro.com/"
                 target="_blank"
-                className="text-green-500 hover:text-green-700"
+                className="text-black-500 hover:text-green-700"
               >
-                GrainPro (2021)
+                First client -{" "} GrainPro (2021)
               </a>
             </h2>
-            <p className="text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+            <p className="text-xl"><strong>GrainPro</strong> was our first client, ordering a crusher and extrusion system to build their in-house  
+              <a href="https://www.youtube.com/watch?v=opJXrGCBK_o&utm_source=chatgpt.com" target="_blank" className="text-blue-500 hover:text-blue-700"><strong> Plastic Fantastic Workshop</strong></a>. 
+              Their commitment to sustainability aligned with our mission, making them an ideal partner. In 2024, they returned for system upgrades—strengthening a valued relationship built on innovation, trust, and shared environmental goals.
             </p>
           </div>
         </div>
@@ -575,12 +574,17 @@ function KeyMilestones() {
             />
           </div>
           <div className="p-8">
-            <h2 className="text-3xl mb-8">Eastwest Seed Company (2022)</h2>
-            <p className="text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+          <h2 className="text-3xl mb-8">
+              <a
+                href="https://www.eastwestseed.com/"
+                target="_blank"
+                className="text-Black-500 hover:text-green-700"
+              >
+                East-West Seed Company (2022,2024)
+              </a>
+            </h2>
+              <p className="text-xl">
+              East-West Seed Company began with a test unit of our recycling system and quickly saw its value, expanding to three more farms. Since then, they’ve recycled over 15 tons of plastic waste. By replacing traditional GI pipes with durable plastic beam trellises, they reduced hauling costs and improved sustainability. The system paid for itself in just six months, proving that recycling can be both environmentally and economically impactful.
             </p>
           </div>
         </div>
