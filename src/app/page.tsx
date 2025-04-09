@@ -10,7 +10,7 @@ import extrusionComb from "./images/Extrusion1.png"
 import shredderCrusher from "./images/Crusher-Machines.png"
 import extrInj from "./images/Extru-Inj.png"
 import balersPic from "./images/Balers.png"
-
+import servicesPic from "./images/Services1.png"
 
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
@@ -170,7 +170,7 @@ function Services() {
               src={extrusionComb}
               alt="Next.js logo"
               priority
-              className="object-cover rounded-full h-80 w-56"
+              className="object-cover rounded-full h-70 w-56"
             />
             <h2 className="text-2xl py-0">Machines</h2>
             <p className="text-gray-700">
@@ -197,7 +197,7 @@ function Services() {
           </div>
           <div className="">
             <Image
-              src={heroImage}
+              src={servicesPic}
               alt="Next.js logo"
               priority
               className="object-cover rounded-full h-56 w-56"
