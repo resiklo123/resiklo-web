@@ -335,6 +335,9 @@ function Products() {
                 />
                 <p>Plastic Bottles</p>
               </div>
+              <div className="flex flex-col items-center">
+                <p>and many more...</p>
+              </div>
             </div>
           </div>
   {/* This is end for the Crusher/Shredder Part. */} 
@@ -429,7 +432,11 @@ function Products() {
                 />
                 <p>Electric wire</p>
               </div>
-            </div>
+          </div>
+              <div className="flex flex-col items-left">
+                <p>customization and many more...</p>
+              </div>
+            
           </div>
   {/* This is the End for the Extrusion Part. */}          
   {/* This is for the Baler Section. */}
