@@ -26,7 +26,7 @@ import plasticBottles from "./images/PET_Bottles.jpg"
 import petBale from "./images/PET_Bale.png"
 import aluminumBale from "./images/Aluminum_Can_Bale.png"
 import fiberBale from "./images/Coir_Fiber.png"
-import cardboardBale from "./images/Baler/Cardboard_Bale.png"
+// import cardboardBale from "./images/Baler/Cardboard_Bale.png"
 
 
 
