@@ -15,6 +15,7 @@ import servicesMolds from "./images/Molds1.jpg"
 import eastWest1 from "./images/East-West1.png"
 import grainPro1 from "./images/GrainPro2.jpg"
 import grainPro2 from "./images/GrainPro1.jpg"
+import chickenBones from "./images/Chicken_Bones.jpg"
 
 
 
@@ -253,7 +254,7 @@ function Products() {
             <div className="grid grid-cols-4 gap-4">
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={chickenBones}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
