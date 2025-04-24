@@ -16,6 +16,13 @@ import eastWest1 from "./images/East-West1.png"
 import grainPro1 from "./images/GrainPro2.jpg"
 import grainPro2 from "./images/GrainPro1.jpg"
 import chickenBones from "./images/Chicken_Bones.jpg"
+import musselShells from "./images/Mussel_Shell.jpg"
+import garbageBag from "./images/Garbage_Bag.jpg"
+import abacaFiber from "./images/Abaca_Fiber.jpg"
+import nylonMat from "./images/Nylon_Mats.jpg"
+import mask from "./images/Mask.jpg"
+import cornCobs from "./images/Corn_Cobs.jpg"
+import plasticBottles from "./images/PET_Bottles.jpg"
 
 
 
@@ -263,7 +270,7 @@ function Products() {
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={musselShells}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
@@ -272,57 +279,57 @@ function Products() {
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={garbageBag}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Nylon Bag</p>
+                <p>Garbage Bag</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={abacaFiber}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Tree branch</p>
+                <p>Abaca Fiber</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={nylonMat}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Leaves</p>
+                <p>Nylon Mat</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={mask}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Plastic toys</p>
+                <p>Face Masks</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={cornCobs}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Dry corn cob</p>
+                <p>Corn Cob</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={plasticBottles}
                   alt="Next.js logo"
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Flower Pot</p>
+                <p>Plastic Bottles</p>
               </div>
             </div>
           </div>
