@@ -23,6 +23,10 @@ import nylonMat from "./images/Nylon_Mats.jpg"
 import mask from "./images/Mask.jpg"
 import cornCobs from "./images/Corn_Cobs.jpg"
 import plasticBottles from "./images/PET_Bottles.jpg"
+import petBale from "./images/PET_Bale.png"
+import aluminumBale from "./images/Aluminum_Can_Bale.png"
+import fiberBale from "./images/Coir_Fiber.png"
+import cardboardBale from "./images/Baler/Cardboard_Bale.png"
 
 
 
@@ -347,10 +351,8 @@ function Products() {
           <div>
             <h2 className="mb-4 text-3xl">Extruders & Injectors</h2>
             <p className="mb-8 text-gray-700">
-              Powerful machine designed to break down plastic waste into
-              smaller, manageable pieces. It enhances recycling efficiency by
-              reducing volume, making plastic easier to process and repurpose
-              for sustainable use.
+            Convert recycled plastic into durable beams and profiles. 
+            Built for efficiency and reliability, they help communities and businesses turn plastic waste into useful materials for construction, farming, and product fabrication.
             </p>
 
             <h2 className="mb-8 text-2xl">Sample Molds & Products</h2>
@@ -443,85 +445,47 @@ function Products() {
           <div>
             <h2 className="mb-4 text-3xl">Balers</h2>
             <p className="mb-8 text-gray-700">
-              Powerful machine designed to break down plastic waste into
-              smaller, manageable pieces. It enhances recycling efficiency by
-              reducing volume, making plastic easier to process and repurpose
-              for sustainable use.
+            Compresses plastic waste into compact, stackable 
+            bales—reducing volume by up to 80%. It simplifies storage, transport, and resale, making it ideal for junkshops, LGUs, and small recycling facilities.
             </p>
 
             <h2 className="mb-8 text-2xl">Sample Materials</h2>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={petBale}
                   alt="Next.js logo"
                   priority
-                  className="object-cover rounded-full w-20 h-20"
+                  className="object-cover  w-50 h-50"
                 />
-                <p>Coconut husk</p>
+                <p>PETs</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={aluminumBale}
                   alt="Next.js logo"
                   priority
-                  className="object-cover rounded-full w-20 h-20"
+                  className="object-cover w-50 h-50"
                 />
-                <p>PET bottles</p>
+                <p>Aluminum Can</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
-                  src={heroImage}
+                  src={fiberBale}
                   alt="Next.js logo"
                   priority
-                  className="object-cover rounded-full w-20 h-20"
+                  className="object-cover w-50 h-50"
                 />
-                <p>Abaca strands</p>
+                <p>Organic Fibers</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
+                {/* <Image
+                  src={cardboardBale}
                   alt="Next.js logo"
                   priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Surgical mask</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Wheel tires</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>LDPE bags</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Leather baseball gloves</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Electric wire</p>
+                  className="object-cover w-50 h-50"
+                /> */}
+                <p>and many more....</p>
               </div>
             </div>
           </div>
