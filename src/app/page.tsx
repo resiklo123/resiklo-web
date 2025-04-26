@@ -347,8 +347,8 @@ function Products() {
               src={extrInj}
               alt="Next.js logo"
               priority
-              height={800}
-              className="object-cover mt-[-190px]"
+              height={900}
+              className="object-contain mt-[-190px]"
             />
           </div>
           <div>
@@ -367,7 +367,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Coconut husk</p>
+                <p>Plastic Beams</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -376,7 +376,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>PET bottles</p>
+                <p>Plant Pots</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -385,7 +385,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Abaca strands</p>
+                <p>Keychains</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -394,7 +394,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Surgical mask</p>
+                <p>Trophy</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -403,7 +403,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Wheel tires</p>
+                <p>Beam Molds</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -412,7 +412,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>LDPE bags</p>
+                <p>Pot Molds</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -421,7 +421,7 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Leather baseball gloves</p>
+                <p>Keychain Molds</p>
               </div>
               <div className="flex flex-col items-center">
                 <Image
@@ -430,10 +430,10 @@ function Products() {
                   priority
                   className="object-cover rounded-full w-20 h-20"
                 />
-                <p>Electric wire</p>
+                <p>Trophy Molds</p>
               </div>
           </div>
-              <div className="flex flex-col items-left">
+              <div className="flex flex-col items-left space-y-20 my-6">
                 <p>customization and many more...</p>
               </div>
             
