@@ -26,7 +26,14 @@ import plasticBottles from "./images/PET_Bottles.jpg"
 import petBale from "./images/PET_Bale.png"
 import aluminumBale from "./images/Aluminum_Can_Bale.png"
 import fiberBale from "./images/Coir_Fiber.png"
-// import cardboardBale from "./images/Baler/Cardboard_Bale.png"
+import plasticBeams from "./images/Extrusion/Beam_Mold_Output.png"
+import plantPot from "./images/Extrusion/Rectangular_Pot.png"
+import keyChains from "./images/Extrusion/Elephant_Keychain.png"
+import trophy from "./images/Extrusion/Trophy_Output.png"
+import beamMold from "./images/Extrusion/Beam_Mold.png"
+import potMold from "./images/Extrusion/Pot_Mold.png"
+import keyChainMold from "./images/Extrusion/Elephant_Mold.png"
+import trophyMold from "./images/Extrusion/Trophy_Mold.png"
 
 
 
@@ -36,7 +43,7 @@ import Link from "next/link"
 //This is the home function
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       <main className="flex-1 flex flex-col">
         <Hero />
         <div className="space-y-20 my-12">
@@ -360,77 +367,101 @@ function Products() {
 
             <h2 className="mb-8 text-2xl">Sample Molds & Products</h2>
             <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-col items-center">
+              <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={plasticBeams}
+                    alt="Plastic Beams"
+                    width={150}
+                    height={150}
+                    className="object-contain"
+                  />
+              </div>
+              <p className="mt-2 text-center">Plastic Beams</p>
+            </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
+              <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                  <Image
+                  src={plantPot}
                   alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Plastic Beams</p>
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                  />
+              </div>
+                <p className="mt-2 text-center">Plant Pots</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
+              <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                  <Image
+                  src={keyChains}
                   alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Plant Pots</p>
+                  width={70}
+                  height={70}
+                  className="object-contain"
+                  />
+              </div>
+                <p className="mt-2 text-center">Keychains</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
+              <div className="rounded-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                  <Image
+                  src={trophy}
                   alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Keychains</p>
+                  width={50}
+                  height={50}
+                  className="object-contain"
+                  />
+              </div>
+                <p className="mt-2 text-center">Trophy</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
+              <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                  <Image
+                  src={beamMold}
                   alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Trophy</p>
+                  width={90}
+                  height={90}
+                  className="object-contain"
+                  />
+              </div>
+                <p className="mt-2 text-center">Beam Molds</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Beam Molds</p>
+                <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={potMold}
+                      alt="Plastic Beams"
+                      width={150}
+                      height={150}
+                      className="object-contain"
+                    />
+                </div>
+                <p className="mt-2 text-center">Pot Mold</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Pot Molds</p>
+                <div className="rounded-4xl w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={keyChainMold}
+                      alt="Plastic Beams"
+                      width={70}
+                      height={70}
+                      className="object-contain"
+                    />
+                </div>
+                <p className="mt-2 text-center">KeyChain Molds</p>
               </div>
               <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Keychain Molds</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Image
-                  src={heroImage}
-                  alt="Next.js logo"
-                  priority
-                  className="object-cover rounded-full w-20 h-20"
-                />
-                <p>Trophy Molds</p>
+                <div className="square-full w-20 h-20 bg-white-200 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={trophyMold}
+                      alt="Plastic Beams"
+                      width={180}
+                      height={180}
+                      className="object-contain"
+                    />
+                </div>
+                <p className="mt-2 text-center">Trophy Molds</p>
               </div>
           </div>
               <div className="flex flex-col items-left space-y-20 my-6">
