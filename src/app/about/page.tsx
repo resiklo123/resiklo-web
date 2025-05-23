@@ -32,7 +32,7 @@ function About() {
           </h2>
           <div>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-              We began as college buddies—two mechanical engineers and one civil engineer—united by a shared love for building and a deep concern for the environment. Today, we've grown into a team of engineers, fabricators, and designers committed to creating high-quality recycling machines that serve both communities and the planet.
+              We began as college buddies—two mechanical engineers and one civil engineer—united by a shared love for building and a deep concern for the environment. Today, we have grown into a team of engineers, fabricators, and designers committed to creating high-quality recycling machines that serve both communities and the planet.
             </p>
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
               We build our machines with utmost commitment to quality and
