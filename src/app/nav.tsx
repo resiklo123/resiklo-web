@@ -11,10 +11,10 @@ import logo from "./images/Resiklo-Logo.png"
 const navigation: { label: string; href: string }[] = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
-  { label: "PRODUCTS", href: "/products-" },
+  { label: "PRODUCTS", href: "/under-dev" },
   // { label: "TEAM", href: "/team" },
   // { label: "STORY", href: "/team" },
-  { label: "CONTACT US", href: "/contact-us" },
+  { label: "CONTACT US", href: "/under-dev" },
   // { label: "DONATE", href: "/donate" },
 ]
 
