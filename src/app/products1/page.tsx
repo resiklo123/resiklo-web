@@ -1,3 +1,7 @@
+"use client"
+import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
 // import heroImage from "../images/hero2.jpg";
@@ -8,7 +12,8 @@ import balersPic from "../images/Balers.png";
 import servicesMolds from "../images/Molds1.jpg";
 import logoROnly from "../images/Resiklo-Logo1.png"
 
-import { ChevronDown } from "lucide-react"
+
+
 
 export default function ProductsPage() {
   return (
@@ -17,6 +22,7 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <Hero/>
       <GridMachines />
+      <ScrollToTop />
     </div>
 
   );
@@ -57,7 +63,7 @@ function Hero(){
       
  function GridMachines(){
   return(
-      <section className="py-20 bg-gray-100">
+      <section id="categories" className="py-20 bg-gray-100">
         <div className="w-full px-8 sm:px-16 lg:px-24">
           <h2 className="text-4xl font-bold text-center mb-12">Categories</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10">
@@ -123,3 +129,30 @@ function Hero(){
       </section>
   )
       }
+
+
+
+
+function ScrollToTop() {
+  const handleClick = () => {
+    const section = document.getElementById("categories");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 group">
+      <button
+        onClick={handleClick}
+        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all"
+        aria-label="Scroll to Categories"
+      >
+        <ChevronUp size={24} />
+      </button>
+      <span className="absolute bottom-16 right-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white text-xs px-2 py-1 rounded">
+        Back to Categories
+      </span>
+    </div>
+  );
+}
