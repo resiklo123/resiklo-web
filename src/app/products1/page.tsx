@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import heroImage from "../images/hero2.jpg";
+// import heroImage from "../images/hero2.jpg";
+import heroProducts1 from "../images/Hero_Products1.png";
 import shredderCrusher from "../images/Crusher-Machines.png";
 import extrInj from "../images/Extru-Inj.png";
 import balersPic from "../images/Balers.png";
@@ -24,10 +25,10 @@ function Hero(){
       <section className="relative h-screen flex flex-col items-start justify-center text-white text-left px-20">
                         {/* "relative h-screen flex items-center justify-center text-center text-white px-20" */}
         <Image
-          src={heroImage}
+          src={heroProducts1}
           alt="Hero Image"
           fill
-          className="object-cover brightness-25"
+          className="object-cover brightness-35 scale-[1]"
         />
         <div className="z-10 flex items-center text-[100px] font-bold font-[Franklin Gothic]" >
           <Image
