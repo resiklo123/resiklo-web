@@ -24,6 +24,16 @@ import RPC_300 from "../images/Products_Page/Shredders_Part/RPC_300.png"
 import RPC_400 from "../images/Products_Page/Shredders_Part/RPC_400.png"
 import RPC_600 from "../images/Products_Page/Shredders_Part/RPC_600.png"
 
+//Shredders Photos
+import RMPI_28 from "../images/Products_Page/Extrusion_Part/RMPI_28.png"
+import APIS from "../images/Products_Page/Extrusion_Part/APIS.png"
+import RPE_28 from "../images/Products_Page/Extrusion_Part/RPE_28.png"
+import RPE_30 from "../images/Products_Page/Extrusion_Part/RPE_30_v2.png"
+import RPE_45 from "../images/Products_Page/Extrusion_Part/RPE_45_v2.png"
+import RPE_60 from "../images/Products_Page/Extrusion_Part/RPE_60.png"
+
+
+
 
 export default function ProductsPage() {
   return (
@@ -33,6 +43,7 @@ export default function ProductsPage() {
       <Hero/>
       <GridMachines />
       <Shredders/>
+      <Extrusion/>
       <ScrollToTop />
     </div>
 
@@ -94,7 +105,7 @@ function Hero(){
             </Link>
 
             {/* Category 2 */}
-            <Link href="../under-dev" className="block">
+            <Link href="#extrusion" className="block">
               <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
                 <Image
                   src={extrInj}
@@ -215,9 +226,48 @@ function Shredders() {
           </div>
         </div>
       </div>
+      <BackToCategoriesBar />
     </section>
   )
 }
+
+
+function Extrusion() {
+  return (
+    <section id="extrusion" className="py-20 bg-gray-100">
+      <div className="w-full px-8 sm:px-16 lg:px-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Extrusion and Injectors</h2>
+
+        {/* Section 1 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Injector Machines</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
+            {/* Example Item */}
+            <MachineCard name="Manual Plastic Injection (RMI-28)" img={RMPI_28} imgClassName="mt-5" />
+            <MachineCard name="Automatic Plastic Injection Series (Coming Soon)" img={APIS} w={190} h={190} imgClassName="mt-0" dimImage={true}/>
+            {/* Add more as needed */}
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Extrusion Machines</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <MachineCard name="RPE-28" img={RPE_28} />
+            <MachineCard name="RPE-30" img={RPE_30} imgClassName="mt-0" />
+            <MachineCard name="RPE-45" img={RPE_45} w={250} h={250} imgClassName="mt-15"  />
+            <MachineCard name="RPE-60 (Coming Soon)" img={RPE_60} w={300} h={300} imgClassName="mt-3" dimImage={true} />
+          
+          </div>
+        </div>
+
+        
+      </div>
+      <BackToCategoriesBar />
+    </section>
+  )
+}
+
 
 
 function ScrollToTop() {
@@ -240,6 +290,24 @@ function ScrollToTop() {
       <span className="absolute bottom-16 right-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white text-xs px-2 py-1 rounded">
         Back to Categories
       </span>
+    </div>
+  );
+}
+
+function BackToCategoriesBar() {
+  const handleClick = () => {
+    const section = document.getElementById("categories");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      className="cursor-pointer bg-blue-100 text-black-700 font-semibold text-center py-4 mt-8 mb-16 rounded hover:bg-blue-300 transition-all"
+    >
+      Back to Categories
     </div>
   );
 }
