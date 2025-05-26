@@ -11,7 +11,7 @@ import logo from "./images/Resiklo-Logo.png"
 const navigation: { label: string; href: string }[] = [
   { label: "HOME", href: "/" },
   { label: "ABOUT", href: "/about" },
-  { label: "PRODUCTS", href: "/under-dev" },
+  { label: "PRODUCTS", href: "/products1" },
   // { label: "TEAM", href: "/team" },
   // { label: "STORY", href: "/team" },
   { label: "CONTACT US", href: "/under-dev" },
