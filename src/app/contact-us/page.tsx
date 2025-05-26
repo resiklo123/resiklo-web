@@ -30,7 +30,7 @@ function Contact() {
           <section className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
             <p className="text-lg text-gray-600">
-              We'd love to hear from you! Whether you're interested in our machines, partnerships, or general inquiries, feel free to reach out.
+              We would love to hear from you! Whether you are interested in our machines, partnerships, or general inquiries, feel free to reach out.
             </p>
           </section>
     
