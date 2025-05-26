@@ -141,6 +141,18 @@ function Hero(){
       }
 
 
+
+  type MachineCardProps = {
+        name: string;
+        img: StaticImageData;
+        w?: number;
+        h?: number;
+        imgClassName?: string;
+        href?: string;
+        dimImage?: boolean;
+  };
+
+  
   function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }) {
     return (
       <Link href={href} className="block">
