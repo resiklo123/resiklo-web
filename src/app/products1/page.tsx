@@ -152,8 +152,8 @@ function Hero(){
         dimImage?: boolean;
   };
 
-  
-  function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }) {
+
+  function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }: MachineCardProps) {
     return (
       <Link href={href} className="block">
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition flex flex-col justify-between items-center h-full relative">
