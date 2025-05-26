@@ -68,7 +68,7 @@ function Hero() {
         fill
         className="object-cover h-full z-0 "
       />
-      <div className="absolute inset-0 bg-white/25 z-10" />
+      <div className="absolute inset-0 bg-black/70 z-10" />
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center bg-black/40">
         <div className="flex-1 flex flex-col justify-between">
           <div className="text-center flex-1 flex flex-col justify-center tracking-tight font-bold mt-20">

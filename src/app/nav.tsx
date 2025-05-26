@@ -14,7 +14,7 @@ const navigation: { label: string; href: string }[] = [
   { label: "PRODUCTS", href: "/products1" },
   // { label: "TEAM", href: "/team" },
   // { label: "STORY", href: "/team" },
-  { label: "CONTACT US", href: "/under-dev" },
+  { label: "CONTACT US", href: "/contact-us" },
   // { label: "DONATE", href: "/donate" },
 ]
 
