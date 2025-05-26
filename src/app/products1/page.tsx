@@ -58,7 +58,7 @@ function Hero(){
           src={heroProducts1}
           alt="Hero Image"
           fill
-          className="object-cover brightness-20 scale-[1]"
+          className="object-cover brightness-15 scale-[1]"
         />
         <div className="z-10 flex items-center text-[100px] font-bold font-[Franklin Gothic]" >
           <Image
