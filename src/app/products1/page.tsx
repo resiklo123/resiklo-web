@@ -3,6 +3,7 @@ import { ChevronUp } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
 // import heroImage from "../images/hero2.jpg";
 import heroProducts1 from "../images/Hero_Products2.png";
