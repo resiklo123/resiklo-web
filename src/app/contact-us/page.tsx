@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 // import heroImage from "../images/hero2.jpg"
 // import logoFull from "../images/Resiklo-Logo3.png"
-import logoROnly from "../images/Resiklo-Logo1.png"
-import heroImageAbout from "../images/about/Team_Picture_2.png"
+import logoROnly from "./images/Resiklo-Logo1.png"
+import heroImageAbout from "./images/about/Team_Picture_2.png"
 
 
 import { ChevronDown } from "lucide-react"
