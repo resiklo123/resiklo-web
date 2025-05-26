@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 // import heroImage from "../images/hero2.jpg";
-import heroProducts1 from "../images/Hero_Products1.png";
+import heroProducts1 from "../images/Hero_Products2.png";
 import shredderCrusher from "../images/Crusher-Machines.png";
 import extrInj from "../images/Extru-Inj.png";
 import balersPic from "../images/Balers.png";
 import servicesMolds from "../images/Molds1.jpg";
 import logoROnly from "../images/Resiklo-Logo1.png"
+
+import { ChevronDown } from "lucide-react"
 
 export default function ProductsPage() {
   return (
@@ -28,7 +30,7 @@ function Hero(){
           src={heroProducts1}
           alt="Hero Image"
           fill
-          className="object-cover brightness-35 scale-[1]"
+          className="object-cover brightness-20 scale-[1]"
         />
         <div className="z-10 flex items-center text-[100px] font-bold font-[Franklin Gothic]" >
           <Image
@@ -42,6 +44,9 @@ function Hero(){
         </div>
         <div className="z-10">
           <p className="text-2xl ml-10">Innovative Solutions for Recycling and Manufacturing</p> 
+        </div>
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white">
+            <ChevronDown size={40} />
         </div>
 
       </section>
