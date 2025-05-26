@@ -4,6 +4,7 @@ import Link from "next/link";
 // import logoFull from "../images/Resiklo-Logo3.png"
 import logoROnly from "./images/Resiklo-Logo1.png"
 import heroImageAbout from "./images/about/Team_Picture_2.png"
+import fbLogo from "./images/FB_logo.png"
 
 
 import { ChevronDown } from "lucide-react"
@@ -73,8 +74,16 @@ function Contact() {
           <section className="text-center">
             <h2 className="text-xl font-semibold mb-4">Follow Us</h2>
             <div className="flex justify-center gap-8 text-2xl">
-              <Link href="https://facebook.com/resiklomachines" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
-                🌐 Facebook
+                
+              <Link href="https://facebook.com/resiklomachines" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600">
+                <Image
+                    src={fbLogo}
+                    alt="Resiklo Logo"
+                    width={24}
+                    height={24}
+                    className="inline-block ml-5"
+                  />
+                Facebook
               </Link>
               <Link href="https://www.instagram.com/resiklo.mfg/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
                 📷 Instagram
