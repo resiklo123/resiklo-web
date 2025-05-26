@@ -12,7 +12,16 @@ import balersPic from "../images/Balers.png";
 import servicesMolds from "../images/Molds1.jpg";
 import logoROnly from "../images/Resiklo-Logo1.png"
 
-
+//Shredders Photos
+import basicShredder from "../images/Products_Page/Shredders_Part/Basic_Shredder.png"
+import basicShredderBoxKit from "../images/Products_Page/Shredders_Part/Shredder_Box.png"
+import VHD_200 from "../images/Products_Page/Shredders_Part/VHD_200.png"
+import VHD_300 from "../images/Products_Page/Shredders_Part/VHD_300.png"
+import VHD_600 from "../images/Products_Page/Shredders_Part/VHD_600.png"
+import LD_150 from "../images/Products_Page/Shredders_Part/LD150_Mini.png"
+import RPC_300 from "../images/Products_Page/Shredders_Part/RPC_300.png"
+import RPC_400 from "../images/Products_Page/Shredders_Part/RPC_400.png"
+import RPC_600 from "../images/Products_Page/Shredders_Part/RPC_600.png"
 
 
 export default function ProductsPage() {
@@ -22,6 +31,7 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <Hero/>
       <GridMachines />
+      <Shredders/>
       <ScrollToTop />
     </div>
 
@@ -69,7 +79,7 @@ function Hero(){
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10">
 
             {/* Category 1 */}
-            <Link href="../under-dev" className="block">
+            <Link href="#shredders" className="block">
               <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
                 <Image
                   src={shredderCrusher}
@@ -131,6 +141,70 @@ function Hero(){
       }
 
 
+  function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }) {
+    return (
+      <Link href={href} className="block">
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition flex flex-col justify-between items-center h-full relative">
+          <div className="relative w-full flex justify-center">
+            <Image
+              src={img}
+              alt={name}
+              width={w}
+              height={h}
+              className={`object-contain rounded-lg mb-4 ${imgClassName}`}
+            />
+            {dimImage && (
+              <div className="absolute inset-0 bg-white opacity-80 rounded-lg pointer-events-none" />
+            )}
+          </div>
+          <h4 className="text-lg font-semibold text-center">{name}</h4>
+        </div>
+      </Link>
+    );
+  }
+
+function Shredders() {
+  return (
+    <section id="shredders" className="py-20 bg-gray-100">
+      <div className="w-full px-8 sm:px-16 lg:px-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Shredders and Crushers</h2>
+
+        {/* Section 1 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Single Axis Shredders</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
+            {/* Example Item */}
+            <MachineCard name="RSASh-150" img={basicShredder} />
+            <MachineCard name="RSASh Box Kit" img={basicShredderBoxKit} w={140} h={140} imgClassName="mt-10"/>
+            {/* Add more as needed */}
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Double Axis Shredders</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <MachineCard name="VHD-200" img={VHD_200} />
+            <MachineCard name="VHD-300" img={VHD_300} imgClassName="mt-5" />
+            <MachineCard name="VHD-600 (Coming Soon)" img={VHD_600} imgClassName="mt-10" dimImage={true} />
+            <MachineCard name="RDAS Box Kit" img={LD_150} />
+          
+          </div>
+        </div>
+
+        {/* Section 3 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">High Speed Shredders / Crushers</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <MachineCard name="RPC-300" img={RPC_300} imgClassName="mt-10" />
+            <MachineCard name="RPC-400 (Coming Soon)" img={RPC_400} w={170} h={170} imgClassName="mt-5" dimImage={true}/>
+            <MachineCard name="RPC-600 (Coming Soon)" img={RPC_600} w={190} h={190} imgClassName="mt-1" dimImage={true} />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 
 function ScrollToTop() {

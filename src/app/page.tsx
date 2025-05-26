@@ -1,3 +1,6 @@
+"use client"
+import { ChevronUp } from "lucide-react";
+
 import Image from "next/image"
 import heroImage from "./images/hero2.jpg"
 import jimenez from "./images/Jimenez.jpg"
@@ -53,6 +56,7 @@ export default function Home() {
           <Products />
           <KeyMilestones />
         </div>
+        <ScrollToTop/>
       </main>
     </div>
   )
@@ -102,27 +106,29 @@ function Hero() {
 
 function Mission() {
   return (
-    <div className="">
-      <div className="max-w-6xl m-auto">
-        <h2 className="mb-10 font-bold text-4xl text-center">
-        Designing Quality. Building Community.
-        </h2>
-        <p className="text-[18px] text-gray-700 text-justify font-medium mb-6">
-        <b>Resiklo Machine Shop</b> was founded by passionate engineers with a deep commitment to the environment and a shared love for manufacturing. Our journey began with a clear purpose: <b>to build high-quality, affordable, and locally made machines</b> that empower communities to recycle effectively and sustainably.
-        </p>
-        <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
-        We saw how access to recycling technology was limited—either <b>too expensive, too complex, or not designed for local needs.</b> So we set out to change that. By combining engineering expertise, hands-on fabrication, and a vision for environmental impact, we created machines that are reliable, scalable, and easy to use—machines that transform waste into opportunity.
-        </p>
-        <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
-        Our team combines years of experience in mechanical design 
-        and local fabrication to produce machines that are <b>reliable, efficient, and proudly made in the Philippines</b>. 
-        Whether it’s transforming plastic waste into beams, sheets, or molded products, our machines are designed to make a real impact—economically, environmentally, and socially.
-        </p>
-        <p className="text-[18px] font-medium text-justify text-gray-700">
-        We’re not just building machines. We’re building a movement—one that democratizes access to technology, supports sustainability, and creates opportunities for communities across the country.
-        </p>
+    <section id="mission">
+      <div className="">
+        <div className="max-w-6xl m-auto">
+          <h2 className="mb-10 font-bold text-4xl text-center">
+          Designing Quality. Building Community.
+          </h2>
+          <p className="text-[18px] text-gray-700 text-justify font-medium mb-6">
+          <b>Resiklo Machine Shop</b> was founded by passionate engineers with a deep commitment to the environment and a shared love for manufacturing. Our journey began with a clear purpose: <b>to build high-quality, affordable, and locally made machines</b> that empower communities to recycle effectively and sustainably.
+          </p>
+          <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
+          We saw how access to recycling technology was limited—either <b>too expensive, too complex, or not designed for local needs.</b> So we set out to change that. By combining engineering expertise, hands-on fabrication, and a vision for environmental impact, we created machines that are reliable, scalable, and easy to use—machines that transform waste into opportunity.
+          </p>
+          <p className="text-[18px]  font-medium text-justify text-gray-700 mb-6">
+          Our team combines years of experience in mechanical design 
+          and local fabrication to produce machines that are <b>reliable, efficient, and proudly made in the Philippines</b>. 
+          Whether it’s transforming plastic waste into beams, sheets, or molded products, our machines are designed to make a real impact—economically, environmentally, and socially.
+          </p>
+          <p className="text-[18px] font-medium text-justify text-gray-700">
+          We’re not just building machines. We’re building a movement—one that democratizes access to technology, supports sustainability, and creates opportunities for communities across the country.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
@@ -621,4 +627,28 @@ function KeyMilestones() {
       </div>
     </div>
   )
+}
+
+function ScrollToTop() {
+  const handleClick = () => {
+    const section = document.getElementById("mission");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 group">
+      <button
+        onClick={handleClick}
+        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all"
+        aria-label="Scroll to Categories"
+      >
+        <ChevronUp size={24} />
+      </button>
+      <span className="absolute bottom-16 right-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white text-xs px-2 py-1 rounded">
+        Back to Top
+      </span>
+    </div>
+  );
 }
