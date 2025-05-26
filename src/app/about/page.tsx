@@ -85,17 +85,17 @@ function Hero() {
           <div className="text-center flex-1 flex flex-col justify-center tracking-tight font-bold mt-20">
             <div className="flex flex-row items-start justify-start text-white text-[100px] font-normal tracking-tight font-bold font-[Franklin Gothic]">
               <span className="mr-4">About</span>
-              <Image
-                src={logoROnly}
-                alt="Resiklo Logo"
-                width={500}
-                height={500}
-                className="inline-block"
-              />
+                <Image
+                  src={logoROnly}
+                  alt="Resiklo Logo"
+                  width={500}
+                  height={500}
+                  className="inline-block"
+                />
             </div>
           </div>
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 text-white">
-            <ChevronDown size={40}  />
+            <ChevronDown size={40} />
           </div>
         </div>
       </div>
