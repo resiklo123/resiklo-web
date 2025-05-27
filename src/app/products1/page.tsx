@@ -24,7 +24,7 @@ import RPC_300 from "../images/Products_Page/Shredders_Part/RPC_300.png"
 import RPC_400 from "../images/Products_Page/Shredders_Part/RPC_400.png"
 import RPC_600 from "../images/Products_Page/Shredders_Part/RPC_600.png"
 
-//Shredders Photos
+//Extrusion Photos
 import RMPI_28 from "../images/Products_Page/Extrusion_Part/RMPI_28.png"
 import APIS from "../images/Products_Page/Extrusion_Part/APIS.png"
 import RPE_28 from "../images/Products_Page/Extrusion_Part/RPE_28.png"
@@ -32,6 +32,11 @@ import RPE_30 from "../images/Products_Page/Extrusion_Part/RPE_30_v2.png"
 import RPE_45 from "../images/Products_Page/Extrusion_Part/RPE_45_v2.png"
 import RPE_60 from "../images/Products_Page/Extrusion_Part/RPE_60.png"
 
+//Baler Photos
+import RHB_5T from "../images/Products_Page/Baler_Part/RHB_5T.png"
+import RHB_10T from "../images/Products_Page/Baler_Part/RHB_10T.png"
+import RHB_20T from "../images/Products_Page/Baler_Part/RHB_20T_v2_1.png"
+import RHB_30T from "../images/Products_Page/Baler_Part/RHB_30T.png"
 
 
 
@@ -44,6 +49,8 @@ export default function ProductsPage() {
       <GridMachines />
       <Shredders/>
       <Extrusion/>
+      <Baler/>
+      {/* <Mold/> */}
       <ScrollToTop />
     </div>
 
@@ -119,7 +126,7 @@ function Hero(){
             </Link>
 
             {/* Category 3 */}
-            <Link href="../under-dev" className="block">
+            <Link href="#baler" className="block">
               <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
                 <Image
                   src={balersPic}
@@ -133,7 +140,7 @@ function Hero(){
             </Link>
 
             {/* Category 4 */}
-            <Link href="../under-dev" className="block">
+            <Link href="#mold" className="block">
               <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
                 <Image
                   src={servicesMolds}
@@ -142,7 +149,7 @@ function Hero(){
                   height={200}
                   className="object-contain rounded-lg mb-6"
                 />
-                <h3 className="text-2xl font-semibold">Services & Molds</h3>
+                <h3 className="text-2xl font-semibold">Molds</h3>
               </div>
             </Link>
 
@@ -165,7 +172,7 @@ function Hero(){
   };
 
 
-  function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }: MachineCardProps) {
+function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }: MachineCardProps) {
     return (
       <Link href={href} className="block">
         <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition flex flex-col justify-between items-center h-full relative">
@@ -260,6 +267,74 @@ function Extrusion() {
           
           </div>
         </div>
+
+        
+      </div>
+      <BackToCategoriesBar />
+    </section>
+  )
+}
+
+
+function Baler() {
+  return (
+    <section id="baler" className="py-20 bg-gray-100">
+      <div className="w-full px-8 sm:px-16 lg:px-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Balers</h2>
+
+        {/* Section 1 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Hydraulic Balers</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
+            {/* Example Item */}
+            <MachineCard name="RHB-5Ton" img={RHB_5T} w={170} h={170} imgClassName="mt-5" />
+            <MachineCard name="RHB-10Ton" img={RHB_10T} w={190} h={190} imgClassName="mt-0" />
+            <MachineCard name="RHB-20Ton" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " />
+            <MachineCard name="RHB-30Ton (Coming Soon)" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>
+            {/* Add more as needed */}
+          </div>
+        </div>
+
+        
+      </div>
+      <BackToCategoriesBar />
+    </section>
+  )
+}
+
+function Mold() {
+  return (
+    <section id="mold" className="py-20 bg-gray-100">
+      <div className="w-full px-8 sm:px-16 lg:px-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Molds</h2>
+
+        {/* Section 1 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Extrusion Molds</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
+            {/* Example Item */}
+            <MachineCard name="Coaster Molds" img={RHB_5T} w={170} h={170} imgClassName="mt-5" />
+            <MachineCard name="Shape Molds" img={RHB_10T} w={190} h={190} imgClassName="mt-0" />
+            <MachineCard name="Trophy Molds" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " />
+            <MachineCard name="Pot Molds" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>
+            {/* Add more as needed */}
+          </div>
+        </div>
+
+        {/* Section 2 */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-semibold mb-6">Beam Molds</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
+            {/* Example Item */}
+            <MachineCard name="Tubular Molds" img={RHB_5T} w={170} h={170} imgClassName="mt-5" />
+            <MachineCard name="Pipe Molds" img={RHB_10T} w={190} h={190} imgClassName="mt-0" />
+            <MachineCard name="Chairs" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " />
+            <MachineCard name="Tables" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>
+            {/* Add more as needed */}
+          </div>
+        </div>
+
+        
 
         
       </div>
