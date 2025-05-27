@@ -38,6 +38,18 @@ import RHB_10T from "../images/Products_Page/Baler_Part/RHB_10T.png"
 import RHB_20T from "../images/Products_Page/Baler_Part/RHB_20T_v2_1.png"
 import RHB_30T from "../images/Products_Page/Baler_Part/RHB_30T.png"
 
+//Coaster Photos
+import Coaster_Mold from "../images/Products_Page/Mold_Part/Coaster_Mold.png"
+import Shape_Mold from "../images/Products_Page/Mold_Part/Shape_Mold.png"
+import Trophy_Mold from "../images/Products_Page/Mold_Part/Trophy_Mold_1.png"
+import Pot_Mold from "../images/Products_Page/Mold_Part/Pot_Mold.png"
+
+import Rectangular_Beams from "../images/Products_Page/Mold_Part/Rectangular_Beams.png"
+import Circular_Beams from "../images/Products_Page/Mold_Part/Circular_Beams_1.png"
+import Chairs from "../images/Products_Page/Mold_Part/Chairs.png"
+import Tables from "../images/Products_Page/Mold_Part/Tables.png"
+
+
 
 
 export default function ProductsPage() {
@@ -50,7 +62,7 @@ export default function ProductsPage() {
       <Shredders/>
       <Extrusion/>
       <Baler/>
-      {/* <Mold/> */}
+      <Mold/>
       <ScrollToTop />
     </div>
 
@@ -313,10 +325,10 @@ function Mold() {
           <h3 className="text-2xl font-semibold mb-6">Extrusion Molds</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
             {/* Example Item */}
-            <MachineCard name="Coaster Molds" img={RHB_5T} w={170} h={170} imgClassName="mt-5" />
-            <MachineCard name="Shape Molds" img={RHB_10T} w={190} h={190} imgClassName="mt-0" />
-            <MachineCard name="Trophy Molds" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " />
-            <MachineCard name="Pot Molds" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>
+            <MachineCard name="Coaster Molds" img={Coaster_Mold} w={210} h={210} imgClassName="mt-10" />
+            <MachineCard name="Shape Molds" img={Shape_Mold} w={190} h={190} imgClassName="mt-10" />
+            <MachineCard name="Trophy Molds" img={Trophy_Mold} w={150} h={150} imgClassName="mt-0  " />
+            <MachineCard name="Pot Molds" img={Pot_Mold} w={230} h={230} imgClassName="mt-15"/>
             {/* Add more as needed */}
           </div>
         </div>
@@ -326,10 +338,10 @@ function Mold() {
           <h3 className="text-2xl font-semibold mb-6">Beam Molds</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
             {/* Example Item */}
-            <MachineCard name="Tubular Molds" img={RHB_5T} w={170} h={170} imgClassName="mt-5" />
-            <MachineCard name="Pipe Molds" img={RHB_10T} w={190} h={190} imgClassName="mt-0" />
-            <MachineCard name="Chairs" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " />
-            <MachineCard name="Tables" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>
+            <MachineCard name="Rectangular Molds" img={Rectangular_Beams} w={220} h={220} imgClassName="mt-15" />
+            <MachineCard name="Circular Molds" img={Circular_Beams} w={220} h={220} imgClassName="mt-10" />
+            <MachineCard name="Chairs" img={Chairs} w={200} h={200} imgClassName="-mt-20  " />
+            <MachineCard name="Tables" img={Tables} w={250} h={250} imgClassName="mt-5"/>
             {/* Add more as needed */}
           </div>
         </div>
