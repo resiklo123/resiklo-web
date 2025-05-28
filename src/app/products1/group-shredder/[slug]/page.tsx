@@ -1,9 +1,25 @@
 import { products } from "@/app/const"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = products.find((p) => p.slug === params.slug )
+// ✅ Types required by Next.js App Router
+type PageProps = {
+  params: {
+    slug: string
+  }
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const product = products.find((p) => p.slug === params.slug)
+  return {
+    title: product?.name ?? "Product Not Found",
+  }
+}
+
+// ✅ Export default component should be async
+export default async function ProductPage({ params }: PageProps) {
+  const product = products.find((p) => p.slug === params.slug)
   if (!product) return notFound()
 
   return (
