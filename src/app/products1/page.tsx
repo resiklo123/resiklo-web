@@ -186,10 +186,10 @@ type MachineCardProps = {
 };
 
 const TAG_MAP: Record<string, { label: string; color: string }> = {
-  A: { label: "Best Seller", color: "bg-blue-600 text-white" },
+  A: { label: "Best Seller", color: "bg-blue-500 text-white" },
   B: { label: "Industrial", color: "bg-gray-400 text-white" },
   C: { label: "Coming Soon", color: "bg-green-200 text-black" },
-  D: { label: "DIYers", color: "bg-blue-200 text-black" },
+  D: { label: "DIYers", color: "bg-blue-100 text-black" },
 };
       
 
@@ -266,7 +266,7 @@ function Shredders() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
             {/* Example Item */}
             <MachineCard name="RSASh-150" img={basicShredder} 
-            // href = "./products1/group-shredder/basic-shredder-machine"
+            href = "./products1/group-shredder/basic-shredder-machine"
             tags={["D"]}
             tagline="Best for HDPE and PP"/>
             <MachineCard name="RSASh Box Kit" img={basicShredderBoxKit} w={140} h={140} imgClassName="mt-10"

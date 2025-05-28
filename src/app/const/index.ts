@@ -1,54 +1,49 @@
-import shredderBoxMS from "../images/shredder-box-ms.png"
-import shredderBoxSS from "../images/shredder-box-ss.png"
-import shredderMachine from "../images/shredder.png"
-import injectionMachine from "../images/plastic-injection.png"
-import extrusionMachine from "../images/extrusion.png"
-import plasticCrusher from "../images/plastic-crusher.png"
 
-export const products = [
+import type { StaticImageData } from "next/image";
+// import shredderBoxMS from "../images/shredder-box-ms.png"
+// import shredderBoxSS from "../images/shredder-box-ss.png"
+import shredderMachine from "../images/shredder.png"
+// import injectionMachine from "../images/plastic-injection.png"
+// import extrusionMachine from "../images/extrusion.png"
+// import plasticCrusher from "../images/plastic-crusher.png"
+
+export type Product = {
+  name: string
+  slug: string
+  src: StaticImageData | string
+  shortDesc: string
+  specs: { label: string; value: string | string[] }[]
+}
+
+export const products: Product[] = [
   {
-    name: "Shredder Box (Mild Steel)",
-    src: shredderBoxMS,
-    slug: "shredder-box-ms",
-  },
-  {
-    name: "Shredder Box (Stainless Steel)",
-    src: shredderBoxSS,
-    slug: "shredder-box-ss",
-  },
-  {
-    name: "Basic Shredder Machine",
-    src: shredderMachine,
+    name: "RSASh-150 Basic Shredder",
     slug: "basic-shredder-machine",
+    src: shredderMachine,
+    shortDesc: `A compact single-axis shredder with a 150mm mouth, perfect for DIYers, researchers, and low-volume shredding.`,
+    specs: [
+      { label: "Model", value: "Precious Plastic Shredder Basic" },
+      { label: "Material", value: "Mild Steel and GI" },
+      { label: "Blades", value: "Mild Steel" },
+      { label: "Hexagonal Shaft", value: "Cold Rolled Steel" },
+      { label: "Axle Type", value: "Single axle" },
+      { label: "Power Input", value: "1.5 kW – 35 rpm output" },
+      { label: "Output Shaft", value: "25mm" },
+      { label: "Sieve Size", value: "4.7 mm" },
+      { label: "Dimension", value: "49 x 35 x 113 cm" },
+      { label: "Weight", value: "55 kg" },
+      { label: "Capacity", value: "5 - 10 kg/hr (depending on plastic)" },
+      {
+        label: "Features",
+        value: [
+          "1.5 kW Motor",
+          "Jam Detection",
+          "Forward/Reverse Direction",
+          "Inverter Control",
+          "Emergency Stop",
+        ],
+      },
+    ],
   },
-  {
-    name: "Manual Plastic Injection Machine",
-    src: injectionMachine,
-    slug: "plastic-injection",
-  },
-  {
-    name: "Basic Extrusion Machine (Ext-28)",
-    src: extrusionMachine,
-    slug: "basic-extrusion",
-  },
-  {
-    name: "Pro Extrusion Machine (Ext-30)",
-    src: extrusionMachine,
-    slug: "pro-extrusion",
-  },
-  {
-    name: "Plastic Crusher (PC-300)",
-    src: plasticCrusher,
-    slug: "plastic-crusher",
-  },
-  {
-    name: "Mild Steel Kit",
-    src: "",
-    slug: "ms-kit",
-  },
-  {
-    name: "Stainless Steel (SUS304) Kit",
-    src: "",
-    slug: "ss-kit",
-  },
+  // ...more products
 ]
