@@ -173,7 +173,7 @@ function Hero(){
 
 
 
-  type MachineCardProps = {
+      type MachineCardProps = {
         name: string;
         img: StaticImageData;
         w?: number;
@@ -181,30 +181,59 @@ function Hero(){
         imgClassName?: string;
         href?: string;
         dimImage?: boolean;
-  };
+        badge?: string;
+        tagline?: string;
+      };
+      
 
 
-function MachineCard({ name, img, w = 200, h = 200, imgClassName = "", href = "../under-dev", dimImage = false }: MachineCardProps) {
-    return (
-      <Link href={href} className="block">
-        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition flex flex-col justify-between items-center h-full relative">
-          <div className="relative w-full flex justify-center">
-            <Image
-              src={img}
-              alt={name}
-              width={w}
-              height={h}
-              className={`object-contain rounded-lg mb-4 ${imgClassName}`}
-            />
-            {dimImage && (
-              <div className="absolute inset-0 bg-white opacity-80 rounded-lg pointer-events-none" />
-            )}
-          </div>
-          <h4 className="text-lg font-semibold text-center">{name}</h4>
-        </div>
-      </Link>
-    );
-  }
+      function MachineCard({
+        name,
+        img,
+        w = 200,
+        h = 200,
+        imgClassName = "",
+        href = "../under-dev",
+        dimImage = false,
+        badge,
+        tagline,
+      }: MachineCardProps) {
+        return (
+          <Link href={href} className="block">
+            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition flex flex-col justify-between items-center h-full relative">
+      
+              {/* 🔵 Badge */}
+              {badge && (
+                <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs font-semibold px-2 py-1 rounded">
+                  {badge}
+                </span>
+              )}
+      
+              {/* 🖼️ Image Container */}
+              <div className="relative w-full flex justify-center">
+                <Image
+                  src={img}
+                  alt={name}
+                  width={w}
+                  height={h}
+                  className={`object-contain rounded-lg mb-4 ${imgClassName}`}
+                />
+                {dimImage && (
+                  <div className="absolute inset-0 bg-white opacity-80 rounded-lg pointer-events-none" />
+                )}
+              </div>
+      
+              {/* 🏷️ Name */}
+              <h4 className="text-lg font-semibold text-center">{name}</h4>
+      
+              {/* 💬 Tagline */}
+              {tagline && (
+                <p className="text-sm text-gray-500 text-center mt-1">{tagline}</p>
+              )}
+            </div>
+          </Link>
+        );
+      }
 
 function Shredders() {
   return (
@@ -217,8 +246,12 @@ function Shredders() {
           <h3 className="text-2xl font-semibold mb-6">Single Axis Shredders</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-stretch">
             {/* Example Item */}
-            <MachineCard name="RSASh-150" img={basicShredder} />
-            <MachineCard name="RSASh Box Kit" img={basicShredderBoxKit} w={140} h={140} imgClassName="mt-10"/>
+            <MachineCard name="RSASh-150" img={basicShredder} 
+            // href = "./products1/group-shredder/basic-shredder-machine"
+            tagline="Best for HDPE and PP"/>
+            <MachineCard name="RSASh Box Kit" img={basicShredderBoxKit} w={140} h={140} imgClassName="mt-10"
+            badge="Best Seller"
+            tagline="Best for HDPE and Small Hard Plastics"/>
             {/* Add more as needed */}
           </div>
         </div>
