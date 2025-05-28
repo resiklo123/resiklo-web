@@ -17,6 +17,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }))
+}
+
 // ✅ Export default component should be async
 export default async function ProductPage({ params }: PageProps) {
   const product = products.find((p) => p.slug === params.slug)
