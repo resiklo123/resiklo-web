@@ -1,9 +1,9 @@
 
 import type { StaticImageData } from "next/image";
-// import shredderBoxMS from "../images/shredder-box-ms.png"
+import shredderBoxMS from "../images/shredder-box-ms.png"
 import shredderBoxSS from "../images/shredder-box-ss.png"
 import shredderMachine from "../images/shredder.png"
-import injectionMachine from "../images/plastic-injection.png"
+// import injectionMachine from "../images/plastic-injection.png"
 // import extrusionMachine from "../images/extrusion.png"
 // import plasticCrusher from "../images/plastic-crusher.png"
 
@@ -20,7 +20,7 @@ export const products: Product[] = [
   {
     name: "RSASh-150 Basic Shredder",
     slug: "basic-shredder-machine",
-    images: [shredderMachine, injectionMachine, shredderBoxSS],
+    images: [shredderMachine, shredderBoxSS,shredderBoxMS],
     // src: shredderMachine,
     shortDesc: `A compact single-axis shredder with a 150mm mouth, perfect for DIYers, researchers, and low-volume shredding.`,
     specs: [

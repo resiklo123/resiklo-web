@@ -28,40 +28,64 @@ export default function ProductCarousel({ images, altText }: ProductCarouselProp
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on('select', onSelect);
-    onSelect(); // Init on mount
+    onSelect(); // initialize
   }, [emblaApi, onSelect]);
 
   return (
     <div>
-      {/* Main Carousel */}
+      {/* ─── Main Carousel ─── */}
       <div className="overflow-hidden mb-4" ref={emblaRef}>
         <div className="flex">
-          {images.map((src, index) => (
-            <div key={index} className="flex-[0_0_100%] flex justify-center items-center h-[400px]">
-              <Image
-                src={typeof src === "string" ? src : src.src}
-                alt={`${altText} - ${index + 1}`}
-                width={400}
-                height={400}
-                className="object-contain"
-              />
+        {images.map((src, index) => {
+          const isStatic  = typeof src !== 'string';
+          const url       = isStatic ? src.src : src;
+          const natWidth  = isStatic ? src.width  : 0;
+          const natHeight = isStatic ? src.height : 0;
+
+          // thresholds = your carousel frame’s size
+          const FRAME_WIDTH  = 600;
+          const FRAME_HEIGHT = 500;
+          const isSmall      = isStatic && natWidth < FRAME_WIDTH && natHeight < FRAME_HEIGHT;
+
+          return (
+            <div
+              key={index}
+              className="min-w-full relative w-full h-96 sm:h-[500px] flex justify-center items-center"
+            >
+              {isSmall ? (
+                <Image
+                  src={url}
+                  alt={`${altText} — ${index + 1}`}
+                  width={natWidth}
+                  height={natHeight}
+                  className="object-contain object-center"
+                />
+              ) : (
+                <Image
+                  src={url}
+                  alt={`${altText} — ${index + 1}`}
+                  fill
+                  className="object-contain object-center"
+                />
+              )}
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
 
-      {/* Thumbnail Row */}
+      {/* ─── Thumbnail Row ─── */}
       <div className="flex gap-2 overflow-x-auto">
         {images.map((src, index) => (
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`border-2 ${
+            className={`flex-none border-2 ${
               index === selectedIndex ? 'border-blue-500' : 'border-transparent'
-            } p-1 rounded`}
+            } rounded`}
           >
             <Image
-              src={typeof src === "string" ? src : src.src}
+              src={typeof src === 'string' ? src : src.src}
               alt={`${altText} Thumbnail ${index + 1}`}
               width={80}
               height={80}

@@ -1,21 +1,22 @@
-"use client";
-import { products } from "@/app/const";
-import { notFound } from "next/navigation";
-import ProductCarousel from "@/app/components/ProductCarousel";
+'use client';
+
+import { products } from '@/app/const';
+import { notFound } from 'next/navigation';
+import ProductCarousel from '@/app/components/ProductCarousel';
 
 export default function ProductDetails({ slug }: { slug: string }) {
   const product = products.find((p) => p.slug === slug);
   if (!product) return notFound();
 
   return (
-    <div className="bg-white">
+    <div className="bg-white pt-25"> {/* reserve 64px for header */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 gap-8 px-4 py-24">
-        {/* ✅ Carousel Section */}
+        {/* Carousel Section */}
         <div>
           <ProductCarousel images={product.images} altText={product.name} />
         </div>
 
-        {/* ✅ Details Section */}
+        {/* Details Section */}
         <div>
           <h1 className="text-4xl font-bold">{product.name}</h1>
           <p className="mt-4 text-gray-500">{product.shortDesc}</p>
