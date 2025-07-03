@@ -38,7 +38,7 @@ import potMold from "./images/Extrusion/Pot_Mold.png"
 import keyChainMold from "./images/Extrusion/Elephant_Mold.png"
 import trophyMold from "./images/Extrusion/Trophy_Mold.png"
 
-import AMCCLogo                from "./images/Customer_Logos/AMCC.png"
+// import AMCCLogo                from "./images/Customer_Logos/AMCC.png"
 import CafeBobsLogo            from "./images/Customer_Logos/Cafe Bobs.jpg"
 import EastWestLogo            from "./images/Customer_Logos/EastWest.jpg"
 import FilmineraLogo           from "./images/Customer_Logos/Filminera.png"
