@@ -62,8 +62,6 @@ const customerLogos = [
   { src: FilmineraLogo,          alt: "Filminera" },
   { src: JPTLogo,                alt: "JPT" },
   { src: NTCLogo,                alt: "NTC" },
-  
-  
   { src: PureOceansLogo,         alt: "Pure Oceans" },
   { src: RecyclingArtStLogo,     alt: "Recycling Art Studio" },
   
@@ -228,15 +226,15 @@ function Customers() {
         <p className="text-lg text-gray-600 mb-12">
           Proudly collaborating with leading organizations.
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-0 items-center">
           {customerLogos.map(({ src, alt }, idx) => (
             <div key={idx} className="flex justify-center">
-            <div className="w-50 h-50 rounded-full overflow-hidden bg-white flex items-center justify-center">
+            <div className="w-55 h-55 rounded-full overflow-hidden bg-white flex items-center justify-center">
               <Image
                 src={src}
                 alt={alt}
-                width={150}
-                height={80}
+                width={180}
+                height={150}
                 className="object-contain transition-all"
               />
             </div>
