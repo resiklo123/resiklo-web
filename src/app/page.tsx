@@ -50,9 +50,11 @@ import PureOceansLogo          from "./images/Customer_Logos/Pure_Oceans.jpg"
 import RecyclingArtStLogo      from "./images/Customer_Logos/Recycling_Art_St.jpg"
 import UPDILLogo               from "./images/Customer_Logos/UP_Dil.jpg"
 import WWFLogo                 from "./images/Customer_Logos/WWF.png"
+import Villgro                 from "./images/Customer_Logos/Villgro.jpg"
 
 const customerLogos = [
-  { src: AMCCLogo,               alt: "AMCC" },
+  // { src: AMCCLogo,               alt: "AMCC" },
+  { src: Villgro,               alt: "Villgro" },
   { src: UPDILLogo,              alt: "UP Diliman" },
   { src: PhilippineRedCrossLogo, alt: "Philippine Red Cross" },
   { src: CafeBobsLogo,           alt: "Cafe Bobs" },
