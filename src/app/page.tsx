@@ -38,6 +38,38 @@ import potMold from "./images/Extrusion/Pot_Mold.png"
 import keyChainMold from "./images/Extrusion/Elephant_Mold.png"
 import trophyMold from "./images/Extrusion/Trophy_Mold.png"
 
+import AMCCLogo                from "./images/Customer_Logos/AMCC.png"
+import CafeBobsLogo            from "./images/Customer_Logos/Cafe Bobs.jpg"
+import EastWestLogo            from "./images/Customer_Logos/EastWest.jpg"
+import FilmineraLogo           from "./images/Customer_Logos/Filminera.png"
+import JPTLogo                 from "./images/Customer_Logos/JPT.jpg"
+import NTCLogo                 from "./images/Customer_Logos/NTC.jpg"
+import PGPRCLogo               from "./images/Customer_Logos/PGPRC.png"
+import PhilippineRedCrossLogo  from "./images/Customer_Logos/Philippine_Red_Cross.jpg"
+import PureOceansLogo          from "./images/Customer_Logos/Pure_Oceans.jpg"
+import RecyclingArtStLogo      from "./images/Customer_Logos/Recycling_Art_St.jpg"
+import UPDILLogo               from "./images/Customer_Logos/UP_Dil.jpg"
+import WWFLogo                 from "./images/Customer_Logos/WWF.png"
+
+const customerLogos = [
+  { src: AMCCLogo,               alt: "AMCC" },
+  { src: UPDILLogo,              alt: "UP Diliman" },
+  { src: PhilippineRedCrossLogo, alt: "Philippine Red Cross" },
+  { src: CafeBobsLogo,           alt: "Cafe Bobs" },
+  { src: PGPRCLogo,              alt: "PGPRC" },
+  { src: WWFLogo,                alt: "WWF" },
+  { src: EastWestLogo,           alt: "East-West Seed" },
+  { src: FilmineraLogo,          alt: "Filminera" },
+  { src: JPTLogo,                alt: "JPT" },
+  { src: NTCLogo,                alt: "NTC" },
+  
+  
+  { src: PureOceansLogo,         alt: "Pure Oceans" },
+  { src: RecyclingArtStLogo,     alt: "Recycling Art Studio" },
+  
+  
+]
+
 
 
 import { ChevronDown } from "lucide-react"
@@ -52,6 +84,7 @@ export default function Home() {
         <div className="space-y-20 my-12">
           <Mission />
           <Team />
+          <Customers />
           <Services />
           <Products />
           <KeyMilestones />
@@ -184,6 +217,37 @@ function Team() {
     </div>
   )
 }
+
+function Customers() {
+    return (
+    <section id="customers" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-4">
+          Our Customers & Partners
+        </h2>
+        <p className="text-lg text-gray-600 mb-12">
+          Proudly collaborating with leading organizations.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
+          {customerLogos.map(({ src, alt }, idx) => (
+            <div key={idx} className="flex justify-center">
+            <div className="w-50 h-50 rounded-full overflow-hidden bg-white flex items-center justify-center">
+              <Image
+                src={src}
+                alt={alt}
+                width={150}
+                height={80}
+                className="object-contain transition-all"
+              />
+            </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 
 function Services() {
   return (
