@@ -244,6 +244,11 @@ function Customers() {
           ))}
         </div>
       </div>
+      <div className="max-w-6xl mx-auto text-right">
+        <h2 className="text-1xl font-normal mb-4">
+          and many more...
+      </h2>
+      </div>
     </section>
   )
 }
