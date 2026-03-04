@@ -14,7 +14,11 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3050](http://localhost:3050) with your browser to see the result.
+
+Note for Windows: this project intentionally runs `next dev` without `--turbopack`.
+Using Turbopack in this repo can cause ENOENT errors such as missing
+`.next/static/development/_buildManifest.js.tmp...` during development.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
