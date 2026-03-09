@@ -58,6 +58,7 @@ export default function ProductsPage() {
       
       {/* Hero Section */}
       <Hero/>
+      <BrowseByCategory />
       <GridMachines />
       <Shredders/>
       <Extrusion/>
@@ -67,6 +68,27 @@ export default function ProductsPage() {
     </div>
 
   );
+}
+
+function BrowseByCategory() {
+  return (
+    <section className="bg-white py-10">
+      <div className="mx-auto max-w-7xl px-8 sm:px-16 lg:px-24">
+        <h2 className="text-3xl font-bold text-center text-gray-900">Browse by Category</h2>
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <Link href="/plastic-shredder-machines" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Plastic Shredder Machines
+          </Link>
+          <Link href="/plastic-crusher" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Plastic Crusher Machines
+          </Link>
+          <Link href="/plastic-extrusion-machines" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Plastic Extrusion Machines
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 function Hero(){

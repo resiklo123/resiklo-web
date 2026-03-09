@@ -7,19 +7,27 @@ import shredderMachine from "../images/shredder.png"
 // import extrusionMachine from "../images/extrusion.png"
 // import plasticCrusher from "../images/plastic-crusher.png"
 
+export type ProductFamily = "shredder" | "crusher" | "extrusion" | "other"
+
 export type Product = {
   name: string
   slug: string
+  family: ProductFamily
   // src: StaticImageData
   images: (StaticImageData | string)[]
   shortDesc: string
   specs: { label: string; value: string | string[] }[]
 }
 
+export function getProductHref(product: Pick<Product, "slug">): string {
+  return `/products1/group-shredder/${product.slug}`
+}
+
 export const products: Product[] = [
   {
     name: "RSASh-150 Basic Shredder",
     slug: "basic-shredder-machine",
+    family: "shredder",
     images: [shredderMachine, shredderBoxSS,shredderBoxMS],
     // src: shredderMachine,
     shortDesc: `A compact single-axis shredder with a 150mm mouth, perfect for DIYers, researchers, and low-volume shredding.`,

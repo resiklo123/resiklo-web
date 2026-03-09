@@ -3,18 +3,34 @@ import type { MetadataRoute } from "next";
 const baseUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://resiklo.org";
 
-const staticRoutes = ["/", "/about", "/products", "/contact-us"];
+const staticRoutes = [
+  "/",
+  "/about",
+  "/products1",
+  "/contact-us",
+  "/plastic-shredder-machines",
+  "/plastic-crusher",
+  "/plastic-extrusion-machines",
+];
 
 type ProductLike = { slug?: string };
+type SitemapModule = {
+  products?: ProductLike[];
+  getProductHref?: (product: ProductLike) => string;
+};
 
 async function getProductRoutes(): Promise<string[]> {
   try {
-    const { products } = (await import("./const")) as { products?: ProductLike[] };
+    const { products, getProductHref } = (await import("./const")) as SitemapModule;
+
+    if (!getProductHref) {
+      return [];
+    }
 
     return (products ?? [])
       .map((product) => product.slug?.trim())
       .filter((slug): slug is string => Boolean(slug))
-      .map((slug) => `/products1/group-shredder/${slug}`);
+      .map((slug) => getProductHref({ slug }));
   } catch {
     return [];
   }

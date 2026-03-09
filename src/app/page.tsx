@@ -605,7 +605,7 @@ function Products() {
   {/* This is the end for the Baler Section. */}
         </div>
         <div className="text-center py-20">
-          <Link href="/products" className="text-xl">
+          <Link href="/products1" className="text-xl">
             View all products
           </Link>
         </div>

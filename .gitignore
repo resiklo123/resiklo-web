@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Build + dependencies
+node_modules/
+.next/
+
+# Zip files (prevents the 151MB problem)
+*.zip
+
+# Optional: OS / editor junk
+.DS_Store
+Thumbs.db
