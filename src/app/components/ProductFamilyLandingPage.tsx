@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { getProductHref, products, type ProductFamily } from "@/app/const"
 import fallbackLogo from "@/app/images/Resiklo-Logo.png"
+import ContactQuickActions from "@/app/components/ContactQuickActions"
 
 export type FaqItem = {
   question: string
@@ -101,6 +102,10 @@ export default function ProductFamilyLandingPage({
           >
             Request a Quote
           </Link>
+        </div>
+
+        <div>
+          <ContactQuickActions pageName={heading} />
         </div>
 
         <section className="mt-14">

@@ -3,9 +3,8 @@ import type { StaticImageData } from "next/image";
 import shredderBoxMS from "../images/shredder-box-ms.png"
 import shredderBoxSS from "../images/shredder-box-ss.png"
 import shredderMachine from "../images/shredder.png"
-// import injectionMachine from "../images/plastic-injection.png"
-// import extrusionMachine from "../images/extrusion.png"
-// import plasticCrusher from "../images/plastic-crusher.png"
+import extrusionMachine from "../images/extrusion.png"
+import plasticCrusher from "../images/plastic-crusher.png"
 
 export type ProductFamily = "shredder" | "crusher" | "extrusion" | "other"
 
@@ -56,4 +55,30 @@ export const products: Product[] = [
     ],
   },
   // ...more products
+  {
+    name: "Plastic Crusher",
+    slug: "plastic-crusher",
+    family: "crusher",
+    images: [plasticCrusher],
+    shortDesc: `A reliable plastic crusher suitable for reducing bulky plastic waste into smaller fragments for downstream processing.`,
+    specs: [
+      { label: "Motor", value: "5.5 kW (typical)" },
+      { label: "Capacity", value: "100 - 300 kg/hr (material dependent)" },
+      { label: "Output Size", value: "10 - 50 mm (adjustable)" },
+      { label: "Construction", value: "Mild steel frame, hardened knives" },
+    ],
+  },
+  {
+    name: "Plastic Extrusion Machine",
+    slug: "basic-extrusion",
+    family: "extrusion",
+    images: [extrusionMachine],
+    shortDesc: `A straightforward single-screw extrusion line for producing filament or profiles from recycled plastic.`,
+    specs: [
+      { label: "Heater Zones", value: "4 zones" },
+      { label: "Output Type", value: "Filament / Profile (die dependent)" },
+      { label: "Capacity", value: "20 - 80 kg/hr (dependent on material & die)" },
+      { label: "Screw", value: "Single-screw, hardened alloy" },
+    ],
+  },
 ]
