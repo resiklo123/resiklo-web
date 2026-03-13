@@ -85,6 +85,12 @@ function BrowseByCategory() {
           <Link href="/plastic-extrusion-machines" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
             Plastic Extrusion Machines
           </Link>
+          <Link href="/recycling-machines" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Recycling Machines
+          </Link>
+          <Link href="/double-axis-shredder" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Double Axis Shredder
+          </Link>
         </div>
       </div>
     </section>

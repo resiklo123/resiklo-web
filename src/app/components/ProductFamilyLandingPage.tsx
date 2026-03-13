@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { getProductHref, products, type ProductFamily } from "@/app/const"
+import { getProductHref, products, type ProductFamily, type Product } from "@/app/const"
 import fallbackLogo from "@/app/images/Resiklo-Logo.png"
 import ContactQuickActions from "@/app/components/ContactQuickActions"
 
@@ -15,6 +15,7 @@ type ProductFamilyLandingPageProps = {
   intro: string
   bulletItems: string[]
   faqs: FaqItem[]
+  recommendedProducts?: Product[]
 }
 
 function getFamilyLabel(family: ProductFamily): string {
@@ -34,8 +35,10 @@ export default function ProductFamilyLandingPage({
   intro,
   bulletItems,
   faqs,
+  recommendedProducts,
 }: ProductFamilyLandingPageProps) {
-  const familyProducts = products.filter((product) => product.family === family)
+  const familyProducts =
+    recommendedProducts ?? products.filter((product) => product.family === family)
 
   const faqSchema = {
     "@context": "https://schema.org",

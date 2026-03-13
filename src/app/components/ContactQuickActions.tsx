@@ -19,19 +19,19 @@ export default function ContactQuickActions({ pageName }: ContactQuickActionsPro
         </a>
 
         <a
-          href="tel:+639676091500"
+          href="tel:+639563027631"
           className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
           aria-label="Call Resiklo mobile 1"
         >
-          📞 +63 967 609 1500
+          📞 0956 302 7631
         </a>
 
         <a
-          href="tel:+639750113677"
+          href="tel:+639675730528"
           className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 hover:bg-gray-50"
           aria-label="Call Resiklo mobile 2"
         >
-          📞 +63 975 011 3677
+          📞 0967 573 0528
         </a>
 
         <a

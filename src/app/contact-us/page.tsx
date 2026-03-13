@@ -44,7 +44,7 @@ function Contact() {
     
             <div>
               <h2 className="text-xl font-semibold mb-2">📞 Phone</h2>
-              <p>+63 9676091500 / +63 9750113677</p>
+              <p>0956 302 7631 / 0967 573 0528</p>
             </div>
     
             <div>
