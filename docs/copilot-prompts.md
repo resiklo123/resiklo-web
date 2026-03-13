@@ -148,7 +148,7 @@ If you want, I can:
 $destDir = "C:\Users\Home\Documents\_Resiklo_Website"
 New-Item -ItemType Directory -Force -Path $destDir | Out-Null
 
-$zip = Join-Path $destDir "resiklo-web-26-03-12-A.zip"
+$zip = Join-Path $destDir "resiklo-web-26-03-13-A.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
 # Collect files (exclude heavy folders + images)
 $files = Get-ChildItem -Recurse -File -Force | Where-Object {
@@ -166,5 +166,13 @@ Write-Host "Created: $zip"
 /plastic-shredder-machines
 http://localhost:3050//plastic-crusher
 http://localhost:3050//plastic-extrusion-machines
+resiklo.org/double-axis-shredder
+resiklo.org/recycling-machines
 
 netstat -ano | findstr :3050
+taskkill /PID 12345 /F
+
+
+https://analytics.google.com/
+https://search.google.com/search-console/about
+
