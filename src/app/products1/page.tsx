@@ -91,6 +91,9 @@ function BrowseByCategory() {
           <Link href="/double-axis-shredder" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
             Double Axis Shredder
           </Link>
+          <Link href="/balers" className="rounded-lg border border-gray-200 bg-gray-50 px-6 py-5 text-center text-lg font-semibold text-gray-900 hover:bg-gray-100 transition">
+            Balers
+          </Link>
         </div>
       </div>
     </section>
@@ -395,12 +398,15 @@ function Baler() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-stretch">
             {/* Example Item */}
             <MachineCard name="RHB-5Ton" img={RHB_5T} w={170} h={170} imgClassName="mt-5" 
+              href = "./products1/group-shredder/rhb-5t"
               tags={["B"]}
             />
             <MachineCard name="RHB-10Ton" img={RHB_10T} w={190} h={190} imgClassName="mt-0" 
+              href = "./products1/group-shredder/rhb-10t"
               tags={["A","B"]}
             />
             <MachineCard name="RHB-20Ton" img={RHB_20T} w={280} h={280} imgClassName="mt-5  " 
+              href = "./products1/group-shredder/rhb-20t"
               tags={["B"]}
             />
             <MachineCard name="RHB-30Ton (Coming Soon)" img={RHB_30T} w={230} h={230} imgClassName="mt-5" dimImage={true}/>

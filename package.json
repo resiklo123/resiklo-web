@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3050",
+    "clean:next": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
+    "clean:all": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true});require('fs').rmSync('node_modules',{recursive:true,force:true})\"",
+    "dev:clean": "npm run clean:next && next dev -p 3050",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -12,7 +15,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.482.0",
-    "next": "^15.3.6",
+    "next": "15.5.12",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-slick": "^0.30.3",
@@ -26,7 +29,7 @@
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
-    "eslint-config-next": "15.2.2",
+    "eslint-config-next": "15.5.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

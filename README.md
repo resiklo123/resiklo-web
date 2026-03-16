@@ -20,6 +20,15 @@ Note for Windows: this project intentionally runs `next dev` without `--turbopac
 Using Turbopack in this repo can cause ENOENT errors such as missing
 `.next/static/development/_buildManifest.js.tmp...` during development.
 
+## If you see a[d] is not a function
+
+1. Stop the dev server.
+2. Run `npm run dev:clean`.
+3. If it is still broken, run the full reset:
+	- `npm run clean:all`
+	- `npm install`
+	- `npm run dev`
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

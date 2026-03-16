@@ -13,6 +13,7 @@ const staticRoutes = [
   "/plastic-extrusion-machines",
   "/recycling-machines",
   "/double-axis-shredder",
+  "/balers",
 ];
 
 type ProductLike = { slug?: string };

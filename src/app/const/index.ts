@@ -9,8 +9,13 @@ import VHD_200 from "../images/Products_Page/Shredders_Part/VHD_200.png"
 import VHD_300 from "../images/Products_Page/Shredders_Part/VHD_300.png"
 import VHD_600 from "../images/Products_Page/Shredders_Part/VHD_600.png"
 import LD150_Mini from "../images/Products_Page/Shredders_Part/LD150_Mini.png"
+import RHB_5T from "../images/Products_Page/Baler_Part/RHB_5T.png"
+import RHB_10T from "../images/Products_Page/Baler_Part/RHB_10T.png"
+import RHB_20T from "../images/Products_Page/Baler_Part/RHB_20T_v2_1.png"
+import RHB_20T_ALT from "../images/Products_Page/Baler_Part/RHB_20T_v2.png"
+import RHB_20T_DETAIL from "../images/Products_Page/Baler_Part/RHB_20T_2.png"
 
-export type ProductFamily = "shredder" | "crusher" | "extrusion" | "other"
+export type ProductFamily = "shredder" | "crusher" | "extrusion" | "baler" | "other"
 
 export type Product = {
   name: string
@@ -138,6 +143,48 @@ export const products: Product[] = [
       { label: "Motor", value: "1.5 - 5.5 kW options" },
       { label: "Capacity", value: "10 - 100 kg/hr" },
       { label: "Shafts", value: "Dual shafts" },
+    ],
+  },
+  {
+    name: "RHB-5T Hydraulic Baler",
+    slug: "rhb-5t",
+    family: "baler",
+    images: [RHB_5T],
+    shortDesc: `Compact hydraulic baler for plastic bottles, film, and cardboard volume reduction in small recovery and storage areas.`,
+    specs: [
+      { label: "Model", value: "RHB-5T" },
+      { label: "Compaction Force", value: "5 tons" },
+      { label: "Material", value: "Plastic bottles, film, and cardboard" },
+      { label: "Machine Type", value: "Vertical hydraulic baler" },
+      { label: "Best For", value: "Retail backrooms, small warehouses, and community hubs" },
+    ],
+  },
+  {
+    name: "RHB-10T Hydraulic Baler",
+    slug: "rhb-10t",
+    family: "baler",
+    images: [RHB_10T],
+    shortDesc: `Mid-size baler for denser bales of PET bottles, stretch film, and cardboard to simplify storage and hauling.`,
+    specs: [
+      { label: "Model", value: "RHB-10T" },
+      { label: "Compaction Force", value: "10 tons" },
+      { label: "Material", value: "PET bottles, cardboard, and plastic film" },
+      { label: "Machine Type", value: "Vertical hydraulic baler" },
+      { label: "Best For", value: "Junk shops, warehouses, and recycling centers" },
+    ],
+  },
+  {
+    name: "RHB-20T Hydraulic Baler",
+    slug: "rhb-20t",
+    family: "baler",
+    images: [RHB_20T, RHB_20T_ALT, RHB_20T_DETAIL],
+    shortDesc: `Heavy-duty baler for higher-volume plastic and cardboard streams that need tighter bales for transport efficiency.`,
+    specs: [
+      { label: "Model", value: "RHB-20T" },
+      { label: "Compaction Force", value: "20 tons" },
+      { label: "Material", value: "Plastic bottles, HDPE containers, and OCC cardboard" },
+      { label: "Machine Type", value: "Heavy-duty hydraulic baler" },
+      { label: "Best For", value: "Material recovery facilities, logistics yards, and larger warehouses" },
     ],
   },
   {

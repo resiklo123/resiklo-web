@@ -16,6 +16,7 @@ type ProductFamilyLandingPageProps = {
   bulletItems: string[]
   faqs: FaqItem[]
   recommendedProducts?: Product[]
+  quoteHref?: string
 }
 
 function getFamilyLabel(family: ProductFamily): string {
@@ -23,6 +24,7 @@ function getFamilyLabel(family: ProductFamily): string {
     shredder: "shredder",
     crusher: "crusher",
     extrusion: "extrusion",
+    baler: "baler",
     other: "machine",
   }
 
@@ -36,6 +38,7 @@ export default function ProductFamilyLandingPage({
   bulletItems,
   faqs,
   recommendedProducts,
+  quoteHref,
 }: ProductFamilyLandingPageProps) {
   const familyProducts =
     recommendedProducts ?? products.filter((product) => product.family === family)
@@ -100,7 +103,7 @@ export default function ProductFamilyLandingPage({
 
         <div className="mt-10">
           <Link
-            href={`/contact-us?machine=${family}`}
+            href={quoteHref ?? `/contact-us?machine=${family}`}
             className="inline-flex rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition"
           >
             Request a Quote
