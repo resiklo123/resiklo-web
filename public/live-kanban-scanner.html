@@ -1,0 +1,574 @@
+<!--
+Deployment:
+1. Host this page on HTTPS (e.g. rename/symlink to kanban-scanner.html or keep live-kanban-scanner.html).
+2. Copy the deployed base URL (no query string).
+3. Paste it into Apps Script 07_webUi.js — examples:
+     const LIVE_SCANNER_URL = 'https://YOUR_DOMAIN/kanban-scanner';
+     const LIVE_SCANNER_URL = 'https://YOUR_DOMAIN/live-kanban-scanner.html';
+   URL must match exactly where this page is served (Apps Script appends ?returnUrl=...).
+4. Deploy Apps Script new version.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanban Live Scanner</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.45;
+      color: #111;
+      background: #f2f2f2;
+      padding: 12px;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .label-row {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #222;
+    }
+    .label-row strong { color: #000; }
+    #status {
+      margin: 12px 0;
+      padding: 10px;
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      min-height: 2.75em;
+      font-size: 0.95rem;
+    }
+    #status.err {
+      background: #ffebee;
+      border-color: #e57373;
+      color: #b71c1c;
+    }
+    #status.ok {
+      background: #e8f5e9;
+      border-color: #81c784;
+      color: #1b5e20;
+    }
+    #reader {
+      width: 100%;
+      min-height: 260px;
+      background: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+    .btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background: #fff;
+      color: #111;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    button.primary {
+      background: #111;
+      color: #fff;
+    }
+    button.danger {
+      border-color: #b71c1c;
+      color: #b71c1c;
+    }
+    .manual {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 2px solid #ddd;
+    }
+    .manual label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .manual input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #333;
+      border-radius: 8px;
+    }
+    #bulkPanel { margin-top: 16px; }
+    #bulkPanel h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .bulk-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .bulk-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+    .bulk-list li button {
+      width: auto;
+      flex-shrink: 0;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+    }
+    .hint {
+      font-size: 0.85rem;
+      color: #444;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Kanban Live Scanner</h1>
+    <div class="label-row"><strong>Mode:</strong> <span id="modeLabel">—</span></div>
+    <div class="label-row"><strong>Scan mode:</strong> <span id="scanModeLabel">—</span></div>
+    <div id="status" class="err" role="status">Loading…</div>
+
+    <div id="reader"></div>
+
+    <div class="btn-row" id="cameraActions">
+      <button type="button" class="primary" id="btnStart">Start Camera</button>
+      <button type="button" id="btnStop" disabled>Stop Camera</button>
+      <button type="button" id="btnScanMore" style="display:none">Scan More Items</button>
+      <button type="button" class="primary" id="btnDone" style="display:none">Done Scanning</button>
+      <button type="button" id="btnCancel">Cancel / Back</button>
+    </div>
+
+    <div class="manual">
+      <label for="manualInput">Paste or type QR / KID (manual)</label>
+      <input type="text" id="manualInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste here…">
+      <div class="btn-row">
+        <button type="button" class="primary" id="btnManualPrimary">Continue</button>
+      </div>
+      <p class="hint" id="manualHint"></p>
+    </div>
+
+    <div id="bulkPanel" style="display:none">
+      <h2>Scanned items</h2>
+      <div><strong id="bulkCount">Scanned count: 0 / 20</strong></div>
+      <ul class="bulk-list" id="bulkList"></ul>
+      <button type="button" class="danger" id="btnClearList">Clear list</button>
+    </div>
+  </div>
+
+  <script>
+(function () {
+  'use strict';
+
+  var MAX_BULK_CODES = 20;
+  var scannedCodes = [];
+  var scannerRunning = false;
+  var lastScanText = '';
+  var lastScanMs = 0;
+  var html5QrCode = null;
+  var returnUrl = '';
+  var modeNorm = 'buy';
+  var bulkScanMode = false;
+
+  function isAllowedReturnUrl(url) {
+    return typeof url === 'string' &&
+      url.indexOf('https://script.google.com/macros/s/') === 0;
+  }
+
+  function appendParam(url, key, value) {
+    var sep = url.indexOf('?') >= 0 ? '&' : '?';
+    return url + sep + encodeURIComponent(key) + '=' + encodeURIComponent(value);
+  }
+
+  function displayCodeLabel(code) {
+    var text = String(code || '');
+    if (text.length <= 48) return text;
+    return text.slice(0, 24) + '...' + text.slice(-12);
+  }
+
+  function setStatus(text, kind) {
+    var el = document.getElementById('status');
+    if (!el) return;
+    el.textContent = text || '';
+    el.className = kind === 'err' ? 'err' : (kind === 'ok' ? 'ok' : '');
+  }
+
+  function parseParams() {
+    var q = new URLSearchParams(window.location.search);
+    return {
+      returnUrl: q.get('returnUrl') || '',
+      mode: (q.get('mode') || 'buy').trim().toLowerCase(),
+      scanMode: (q.get('scanMode') || 'single').trim().toLowerCase()
+    };
+  }
+
+  function modeDisplay(m) {
+    if (m === 'receive') return 'Receive';
+    if (m === 'station') return 'Station';
+    return 'Buy';
+  }
+
+  function ensureHttpsPage() {
+    if (location.protocol === 'https:') return true;
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return true;
+    setStatus('Camera requires HTTPS. Please open this page on the deployed HTTPS URL.', 'err');
+    return false;
+  }
+
+  function libraryLoaded() {
+    return typeof Html5Qrcode !== 'undefined';
+  }
+
+  function updateModeLabels() {
+    document.getElementById('modeLabel').textContent = modeDisplay(modeNorm);
+    document.getElementById('scanModeLabel').textContent = bulkScanMode ? 'Bulk Scan' : 'Single Scan';
+    document.getElementById('bulkPanel').style.display = bulkScanMode ? 'block' : 'none';
+    var manualPrimary = document.getElementById('btnManualPrimary');
+    manualPrimary.textContent = bulkScanMode ? 'Add' : 'Continue';
+    document.getElementById('manualHint').textContent = bulkScanMode
+      ? 'Add items to the list, then tap Done Scanning when finished.'
+      : 'Paste or type a code, then Continue to return to the station.';
+  }
+
+  function updateBulkUi() {
+    var countEl = document.getElementById('bulkCount');
+    var listEl = document.getElementById('bulkList');
+    if (countEl) countEl.textContent = 'Scanned count: ' + scannedCodes.length + ' / ' + MAX_BULK_CODES;
+    if (!listEl) return;
+    listEl.innerHTML = '';
+    scannedCodes.forEach(function (code, index) {
+      var li = document.createElement('li');
+      var span = document.createElement('span');
+      span.textContent = displayCodeLabel(code);
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.textContent = 'Remove';
+      rm.setAttribute('data-index', String(index));
+      rm.addEventListener('click', function () {
+        removeAtIndex(parseInt(rm.getAttribute('data-index'), 10));
+      });
+      li.appendChild(span);
+      li.appendChild(rm);
+      listEl.appendChild(li);
+    });
+  }
+
+  function removeAtIndex(index) {
+    if (index < 0 || index >= scannedCodes.length) return;
+    scannedCodes.splice(index, 1);
+    updateBulkUi();
+    setStatus('Item removed.', 'ok');
+  }
+
+  function clearBulkListConfirmed() {
+    if (!scannedCodes.length) return;
+    if (!window.confirm('Clear all scanned items from this session?')) return;
+    scannedCodes = [];
+    updateBulkUi();
+    setStatus('List cleared.', 'ok');
+  }
+
+  function withinDebounce(text, now) {
+    if (text === lastScanText && (now - lastScanMs) < 3000) return true;
+    lastScanText = text;
+    lastScanMs = now;
+    return false;
+  }
+
+  function redirectSingle(decodedText) {
+    try {
+      window.location.href = appendParam(returnUrl, 'code', decodedText);
+    } catch (e) {
+      setStatus('Could not return to station. Try again.', 'err');
+    }
+  }
+
+  function redirectBulk() {
+    if (!scannedCodes.length) {
+      setStatus('No items scanned yet.', 'err');
+      return;
+    }
+    var payload = JSON.stringify(scannedCodes);
+    var candidate = appendParam(returnUrl, 'bulkCodes', payload);
+    if (candidate.length > 1800) {
+      setStatus('Too many QR codes for URL return. Please finish smaller batches.', 'err');
+      return;
+    }
+    try {
+      window.location.href = candidate;
+    } catch (e) {
+      setStatus('Could not return to station. Try a smaller batch.', 'err');
+    }
+  }
+
+  function stopScanner() {
+    if (!html5QrCode || !scannerRunning) {
+      scannerRunning = false;
+      setButtonsRunning(false);
+      return;
+    }
+    html5QrCode.stop().then(function () {
+      scannerRunning = false;
+      setButtonsRunning(false);
+    }).catch(function () {
+      scannerRunning = false;
+      setButtonsRunning(false);
+    });
+  }
+
+  function setButtonsRunning(running) {
+    document.getElementById('btnStart').disabled = running || !isAllowedReturnUrl(returnUrl);
+    document.getElementById('btnStop').disabled = !running;
+  }
+
+  function showBulkPauseUi(show) {
+    document.getElementById('btnScanMore').style.display = show ? 'block' : 'none';
+    document.getElementById('btnDone').style.display = bulkScanMode && scannedCodes.length ? 'block' : 'none';
+    if (!bulkScanMode) {
+      document.getElementById('btnScanMore').style.display = 'none';
+      document.getElementById('btnDone').style.display = 'none';
+    }
+  }
+
+  function onDecodeSuccess(decodedText) {
+    var text = String(decodedText || '').trim();
+    if (!text) return;
+
+    if (bulkScanMode && scannedCodes.indexOf(text) >= 0) {
+      setStatus('Already scanned. Scan another item.', 'err');
+      stopScanner();
+      showBulkPauseUi(true);
+      return;
+    }
+
+    var now = Date.now();
+    if (withinDebounce(text, now)) return;
+
+    if (!bulkScanMode) {
+      stopScanner();
+      setStatus('Code captured. Returning to station…', 'ok');
+      redirectSingle(text);
+      return;
+    }
+
+    if (scannedCodes.length >= MAX_BULK_CODES) {
+      setStatus('Maximum ' + MAX_BULK_CODES + ' items. Tap Done Scanning or remove an item.', 'err');
+      stopScanner();
+      showBulkPauseUi(true);
+      return;
+    }
+
+    scannedCodes.push(text);
+    updateBulkUi();
+    stopScanner();
+    setStatus('Detected item. Scan more items or finish.', 'ok');
+    showBulkPauseUi(true);
+  }
+
+  function startScanner() {
+    if (!isAllowedReturnUrl(returnUrl)) {
+      setStatus('Invalid return URL. Scanning is disabled.', 'err');
+      return;
+    }
+    if (!ensureHttpsPage()) return;
+    if (!libraryLoaded()) {
+      setStatus('Scanner library did not load. Check your connection and refresh.', 'err');
+      return;
+    }
+
+    var readerId = 'reader';
+    if (!html5QrCode) {
+      html5QrCode = new Html5Qrcode(readerId);
+    }
+
+    var config = {
+      fps: 10,
+      qrbox: { width: 250, height: 250 },
+      rememberLastUsedCamera: true
+    };
+
+    setStatus('Starting camera…', 'ok');
+    document.getElementById('btnScanMore').style.display = 'none';
+
+    html5QrCode.start(
+      { facingMode: 'environment' },
+      config,
+      function (message) { onDecodeSuccess(message); },
+      function () { /* frame errors — ignore noise */ }
+    ).then(function () {
+      scannerRunning = true;
+      setButtonsRunning(true);
+      setStatus('Point the camera at a QR code.', 'ok');
+    }).catch(function (err) {
+      scannerRunning = false;
+      setButtonsRunning(false);
+      var msg = String(err && err.message ? err.message : err || '');
+      if (/Permission|NotAllowed|denied/i.test(msg)) {
+        setStatus('Camera permission denied. Allow camera access in browser settings.', 'err');
+      } else if (/NotFound|no camera|DevicesNotFound/i.test(msg)) {
+        setStatus('No camera found on this device.', 'err');
+      } else {
+        setStatus('Could not start camera: ' + msg, 'err');
+      }
+    });
+  }
+
+  function cancelBack() {
+    stopScanner();
+    if (!returnUrl) {
+      try { window.history.back(); } catch (e0) {}
+      return;
+    }
+    if (!isAllowedReturnUrl(returnUrl)) {
+      setStatus('Cannot return: invalid station URL. Close this tab.', 'err');
+      try { window.history.back(); } catch (e1) {}
+      return;
+    }
+    try {
+      window.location.href = returnUrl;
+    } catch (e) {
+      setStatus('Could not go back. Close this tab and open the station again.', 'err');
+    }
+  }
+
+  function manualSubmit() {
+    var input = document.getElementById('manualInput');
+    var raw = input ? String(input.value || '').trim() : '';
+    if (!raw) {
+      setStatus('Enter a code first.', 'err');
+      return;
+    }
+    if (!isAllowedReturnUrl(returnUrl)) {
+      setStatus('Invalid return URL.', 'err');
+      return;
+    }
+
+    if (!bulkScanMode) {
+      setStatus('Returning to station…', 'ok');
+      redirectSingle(raw);
+      return;
+    }
+
+    if (scannedCodes.indexOf(raw) >= 0) {
+      setStatus('Already in list. Enter a different code.', 'err');
+      return;
+    }
+    if (scannedCodes.length >= MAX_BULK_CODES) {
+      setStatus('List full (' + MAX_BULK_CODES + '). Remove an item or tap Done Scanning.', 'err');
+      return;
+    }
+    scannedCodes.push(raw);
+    if (input) input.value = '';
+    updateBulkUi();
+    setStatus('Added. Add more or tap Done Scanning.', 'ok');
+    showBulkPauseUi(true);
+  }
+
+  function init() {
+    var p = parseParams();
+    returnUrl = (p.returnUrl || '').trim();
+
+    document.getElementById('btnCancel').addEventListener('click', cancelBack);
+
+    if (!returnUrl) {
+      setStatus('Missing returnUrl. Open this page from the Kanban station (Scan QR Live).', 'err');
+      document.getElementById('btnStart').disabled = true;
+      document.getElementById('btnStop').disabled = true;
+      document.getElementById('btnManualPrimary').disabled = true;
+      return;
+    }
+
+    if (!isAllowedReturnUrl(returnUrl)) {
+      setStatus('Invalid return URL. Only Apps Script web app URLs are allowed.', 'err');
+      document.getElementById('btnStart').disabled = true;
+      document.getElementById('btnManualPrimary').disabled = true;
+      modeNorm = ['buy', 'receive', 'station'].indexOf(p.mode) >= 0 ? p.mode : 'buy';
+      bulkScanMode = p.scanMode === 'bulk';
+      updateModeLabels();
+      return;
+    }
+
+    if (!ensureHttpsPage()) {
+      document.getElementById('btnStart').disabled = true;
+      modeNorm = ['buy', 'receive', 'station'].indexOf(p.mode) >= 0 ? p.mode : 'buy';
+      bulkScanMode = p.scanMode === 'bulk';
+      updateModeLabels();
+      updateBulkUi();
+      document.getElementById('btnManualPrimary').addEventListener('click', manualSubmit);
+      document.getElementById('btnClearList').addEventListener('click', clearBulkListConfirmed);
+      document.getElementById('btnDone').addEventListener('click', function () {
+        stopScanner();
+        redirectBulk();
+      });
+      return;
+    }
+
+    modeNorm = ['buy', 'receive', 'station'].indexOf(p.mode) >= 0 ? p.mode : 'buy';
+    bulkScanMode = p.scanMode === 'bulk';
+
+    updateModeLabels();
+    updateBulkUi();
+    showBulkPauseUi(false);
+
+    document.getElementById('btnStart').disabled = false;
+    setStatus('Tap Start Camera to scan, or use manual entry below.', 'ok');
+
+    document.getElementById('btnStart').addEventListener('click', startScanner);
+    document.getElementById('btnStop').addEventListener('click', function () {
+      stopScanner();
+      setStatus('Camera stopped.', 'ok');
+      if (bulkScanMode && scannedCodes.length) showBulkPauseUi(true);
+    });
+    document.getElementById('btnScanMore').addEventListener('click', function () {
+      showBulkPauseUi(false);
+      startScanner();
+    });
+    document.getElementById('btnDone').addEventListener('click', function () {
+      stopScanner();
+      redirectBulk();
+    });
+    document.getElementById('btnManualPrimary').addEventListener('click', manualSubmit);
+    document.getElementById('btnClearList').addEventListener('click', clearBulkListConfirmed);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+  </script>
+</body>
+</html>
