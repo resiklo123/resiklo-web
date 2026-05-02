@@ -159,6 +159,7 @@ Deployment:
     <h1>Kanban Live Scanner</h1>
     <div class="label-row"><strong>Mode:</strong> <span id="modeLabel">—</span></div>
     <div class="label-row"><strong>Scan mode:</strong> <span id="scanModeLabel">—</span></div>
+    <div class="label-row"><strong>Return link:</strong> <span id="returnUrlMeta">—</span></div>
     <div id="status" class="err" role="status">Loading…</div>
 
     <div id="reader"></div>
@@ -202,9 +203,44 @@ Deployment:
   var modeNorm = 'buy';
   var bulkScanMode = false;
 
+  function safeDecodeUrlParam(value) {
+    var out = String(value || '').trim();
+    var i;
+    for (i = 0; i < 2; i++) {
+      try {
+        var decoded = decodeURIComponent(out);
+        if (decoded === out) break;
+        out = decoded;
+      } catch (e) {
+        break;
+      }
+    }
+    return out;
+  }
+
   function isAllowedReturnUrl(url) {
     return typeof url === 'string' &&
-      url.indexOf('https://script.google.com/macros/s/') === 0;
+      url.indexOf('https://script.google.com/macros/s/') === 0 &&
+      (url.indexOf('/exec') > 0 || url.indexOf('/dev') > 0);
+  }
+
+  function updateReturnUrlMeta() {
+    var el = document.getElementById('returnUrlMeta');
+    if (!el) return;
+    var url = returnUrl;
+    if (!url) {
+      el.textContent = 'status: missing · host: —';
+      return;
+    }
+    var valid = isAllowedReturnUrl(url);
+    var statusWord = valid ? 'valid' : 'invalid';
+    var hostPart = '—';
+    try {
+      hostPart = new URL(url).hostname || '—';
+    } catch (e1) {
+      hostPart = '(unparseable)';
+    }
+    el.textContent = 'status: ' + statusWord + ' · host: ' + hostPart;
   }
 
   function appendParam(url, key, value) {
@@ -227,8 +263,9 @@ Deployment:
 
   function parseParams() {
     var q = new URLSearchParams(window.location.search);
+    var rawReturnUrl = q.get('returnUrl') || '';
     return {
-      returnUrl: q.get('returnUrl') || '',
+      returnUrl: safeDecodeUrlParam(rawReturnUrl),
       mode: (q.get('mode') || 'buy').trim().toLowerCase(),
       scanMode: (q.get('scanMode') || 'single').trim().toLowerCase()
     };
@@ -499,6 +536,7 @@ Deployment:
   function init() {
     var p = parseParams();
     returnUrl = (p.returnUrl || '').trim();
+    updateReturnUrlMeta();
 
     document.getElementById('btnCancel').addEventListener('click', cancelBack);
 
